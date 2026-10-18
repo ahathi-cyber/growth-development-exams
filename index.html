@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#132d4f">
+  <meta name="description" content="Final MBBS paediatrics growth and development practice exams: True/False and Single Best Answer questions.">
+  <title>Growth &amp; Development | Paediatrics Practice Exams</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">G</div>
+      <div><strong>PAEDIATRICS</strong><span>GROWTH &amp; DEVELOPMENT</span></div>
+    </div>
+    <div class="tag">FINAL MBBS REVISION</div>
+  </header>
+
+  <main class="wrap">
+    <section id="home">
+      <div class="hero">
+        <div class="eyebrow"><span class="dot"></span> REVISION • PRACTICE • REVIEW</div>
+        <h1>Growth &amp;<br><em>Development.</em></h1>
+        <p class="intro">Build confidence in paediatric growth assessment, developmental milestones, puberty and common clinical presentations. Choose a question format to begin your practice session.</p>
+
+        <div class="stats" aria-label="Exam summary">
+          <div><b>30</b><span>T/F GROUPS</span></div>
+          <div><b>30</b><span>SBA QUESTIONS</span></div>
+          <div><b>150</b><span>MAX T/F POINTS</span></div>
+        </div>
+
+        <div class="mode-grid">
+          <button class="mode-card" type="button" data-mode="tf">
+            <span class="mode-icon" aria-hidden="true">T/F</span>
+            <span class="mode-title">True / False</span>
+            <span class="mode-desc">30 groups · 5 statements per group · True, False or Unsure</span>
+            <span class="mode-cta"><span>Start T/F practice</span><b aria-hidden="true">→</b></span>
+          </button>
+          <button class="mode-card" type="button" data-mode="sba">
+            <span class="mode-icon" aria-hidden="true">SBA</span>
+            <span class="mode-title">Single Best Answer</span>
+            <span class="mode-desc">30 clinical and knowledge-based questions with one best answer</span>
+            <span class="mode-cta"><span>Start SBA practice</span><b aria-hidden="true">→</b></span>
+          </button>
+        </div>
+
+        <div class="note"><span aria-hidden="true">i</span><p><b>Before you begin</b><br>Work through each question, then submit to see your score and review your answers. You can export your results as a CSV file for your own records.</p></div>
+      </div>
+    </section>
+
+    <section id="exam" class="hidden" aria-labelledby="q-title">
+      <div class="exam-top">
+        <button id="back" class="text-btn" type="button">← Back to exam choices</button>
+        <span id="counter" class="counter">01 / 30</span>
+      </div>
+      <div class="eyebrow" id="exam-label">TRUE / FALSE PRACTICE</div>
+      <div class="progress" role="progressbar" aria-label="Responses selected"><span id="progress-fill"></span></div>
+      <div class="question-head">
+        <div class="eyebrow" id="q-number">GROUP 01</div>
+        <h2 id="q-title">Loading question…</h2>
+        <p id="q-stem" class="stem">Choose True, False, or Unsure for each statement.</p>
+      </div>
+      <div id="question-body"></div>
+      <div class="exam-actions">
+        <button id="prev" class="btn secondary" type="button" disabled>← Previous</button>
+        <span id="saved" class="saved">0 responses selected</span>
+        <button id="next" class="btn primary" type="button">Next →</button>
+      </div>
+      <div class="submit-row"><button id="submit" class="btn submit" type="button">Submit answers &amp; view results</button></div>
+    </section>
+
+    <section id="results" class="hidden" aria-labelledby="results-heading">
+      <div class="result-title">
+        <div class="eyebrow"><span class="dot"></span> PRACTICE SESSION COMPLETE</div>
+        <h1 id="results-heading">Your <em>results.</em></h1>
+        <p class="intro">Use the review below to identify strengths and topics to revisit.</p>
+      </div>
+      <div class="score-panel">
+        <div class="score-label">YOUR SCORE</div>
+        <div><strong id="score">0</strong><span id="out-of"> / 150</span></div>
+        <p id="feedback">Review your answers below to consolidate your knowledge.</p>
+      </div>
+      <div class="result-actions">
+        <button id="csv" class="btn primary" type="button">Export results (CSV)</button>
+        <button id="retry" class="btn secondary" type="button">Try this exam again</button>
+        <button id="dashboard" class="btn secondary" type="button">Back to exam choices</button>
+      </div>
+      <h2 class="review-title">Answer review</h2>
+      <div id="review-list"></div>
+    </section>
+
+    <footer>
+      <span>PAEDIATRICS · GROWTH &amp; DEVELOPMENT</span>
+      <span>FOR EDUCATIONAL REVISION</span>
+    </footer>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
