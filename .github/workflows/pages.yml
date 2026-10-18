@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Validate bundled question bank
+      - name: Validate and normalize bundled question bank
         run: |
           node - <<'NODE'
           const fs = require('fs');
@@ -27,9 +27,13 @@ jobs:
           const source = fs.readFileSync('questions.js', 'utf8');
           const match = source.match(/"([^"]+)"/);
           if (!match) throw new Error('Missing compressed question bank');
-          const bank = JSON.parse(zlib.gunzipSync(Buffer.from(match[1], 'base64')).toString('utf8'));
+          const compressed = Buffer.from(match[1].replace(/\\s/g, ''), 'base64');
+          const json = zlib.inflateRawSync(compressed.subarray(10, compressed.length - 8)).toString('utf8');
+          const bank = JSON.parse(json);
           if (bank.tf.length !== 30 || bank.sba.length !== 30) throw new Error('Expected 30 T/F groups and 30 SBA questions');
-          console.log('Validated', bank.tf.length, 'T/F groups and', bank.sba.length, 'SBA questions.');
+          const canonical = zlib.gzipSync(Buffer.from(JSON.stringify(bank), 'utf8')).toString('base64');
+          fs.writeFileSync('questions.js', 'window.QUESTION_BANK_GZIP_B64 = "' + canonical + '";\\n');
+          console.log('Validated and normalized', bank.tf.length, 'T/F groups and', bank.sba.length, 'SBA questions.');
           NODE
       - name: Configure Pages
         uses: actions/configure-pages@v5
