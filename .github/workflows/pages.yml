@@ -19,6 +19,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Validate bundled question bank
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const zlib = require('zlib');
+          const source = fs.readFileSync('questions.js', 'utf8');
+          const match = source.match(/"([^"]+)"/);
+          if (!match) throw new Error('Missing compressed question bank');
+          const bank = JSON.parse(zlib.gunzipSync(Buffer.from(match[1], 'base64')).toString('utf8'));
+          if (bank.tf.length !== 30 || bank.sba.length !== 30) throw new Error('Expected 30 T/F groups and 30 SBA questions');
+          console.log('Validated', bank.tf.length, 'T/F groups and', bank.sba.length, 'SBA questions.');
+          NODE
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
