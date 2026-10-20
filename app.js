@@ -175,7 +175,8 @@ function buildSubmissionResponses(){
  });
  return rows;
 }
-\nfunction submit(){
+
+function submit(){
  results=calculate();hide('exam');show('results');
  $('score').textContent=results.score;$('out-of').textContent=' / '+results.max;
  const pct=results.max?results.score/results.max*100:0;
