@@ -49,7 +49,7 @@ jobs:
             if (essay.max !== 20 || total !== 20) throw new Error('Essay ' + (i + 1) + ' rubric must total exactly 20 marks; got ' + total);
           }
           if (!Array.isArray(bank.essays) || bank.essays.length !== 3) throw new Error('Child Psychiatry bank must contain exactly 3 essays.');
-          for (const [i, essay] of bank.essays.entries()) { const total = essay.rubric.reduce((sum, criterion) => sum + criterion.points, 0); if (essay.max !== 20 || total !== 20) throw new Error('Child Psychiatry essay ' + (i + 1) + ' rubric must total 20 marks; got ' + total); }
+          for (const [i, essay] of bank.essays.entries()) { const total = essay.rubric.reduce((sum, criterion) => sum + criterion.points, 0); if (essay.max !== 20 || total !== 20) throw new Error('Schizophrenia essay ' + (i + 1) + ' rubric must total 20 marks; got ' + total); }
           for (const [i, group] of bank.tf.entries()) {
             if (!Array.isArray(group.statements) || group.statements.length !== 5) throw new Error('T/F group ' + (i + 1) + ' must have five statements.');
           }
