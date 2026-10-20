@@ -1,25 +1,33 @@
-# Pediatrics Growth & Development Practice Exams
+# Paediatrics Final MBBS Practice Exams
 
-A responsive Final MBBS revision site covering growth assessment, faltering growth, developmental milestones, puberty, and common paediatric presentations.
+A responsive educational revision site with topic selection, True/False, Single Best Answer (SBA), and formative essay self-marking.
 
-## Included
-- **True/False:** 30 groups with 5 statements each. Correct +1, incorrect −1, Unsure/blank 0; each group is floored at 0.
-- **Single Best Answer:** 30 questions. Correct +3; incorrect/blank 0.
-- Answer review and local CSV export.
-- Responsive layout for desktop and mobile.
-- GitHub Actions workflow for GitHub Pages.
+## Topics
+- **Growth & Development:** existing 30 True/False groups and 30 SBA questions.
+- **Neonatal Jaundice:** 30 True/False groups (5 statements per group), 30 SBA questions, and 3 structured essay questions (20 marks each).
 
-## Enable the live website
-1. Open the repository **Settings** tab.
-2. Choose **Pages** in the left menu.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Return to **Actions** and open the latest **Deploy practice site to GitHub Pages** run. It should rerun on the latest commit; if needed, use **Re-run jobs**.
-5. When the workflow succeeds, the website will be available at **https://ahathi-cyber.github.io/growth-development-exams/**.
+## Exam interface
+- Compact table layout for True/False statements; only True and False are offered.
+- Clickable numbered question navigation.
+- Navigation colours show unanswered, partly answered, answered and current questions.
+- Topic/category labels and explanations are withheld until submission.
+- Objective answer review, scoring and local CSV export.
 
-The current GitHub integration can push code but does not have permission to enable the Pages setting itself. This one-time setting must be enabled by the repository owner.
+## Marking
+- True/False: +1 correct, −1 incorrect, blank 0; each 5-statement group is floored at 0.
+- SBA: +3 correct; incorrect/blank 0.
+- Essays: 3 essays, 20 marks each, using a structured key-point rubric. The app highlights detected concepts and suggests important points that were not detected. A student can tick a missing concept if they believe it was included in different wording; the UI then shows a separate self-reviewed estimate.
+- **Essay scoring is provisional keyword-supported formative feedback, not true semantic marking.** The detector can miss valid paraphrases and may sometimes match a phrase without fully understanding it. Review the rubric manually; it must not be used for high-stakes or official grading without human review.
 
-## Important limitations
-This is a browser-only practice prototype. The answer keys are delivered to the browser and can be inspected, so this is **not secure for proctored or high-stakes exams**. Results remain on the user's device and CSV export is local; there is no central results database or teacher dashboard. Secure server-side marking and central collection require a backend (for example, Supabase) with answer keys stored server-side.
+## Sources and clinical caution
+The Neonatal Jaundice content was drafted with reference to the project's *Illustrated Textbook of Paediatrics*, *Nelson Essentials of Pediatrics*, and the supplied Paediatrics Categorized MCQ collection. Questions and rubric wording are original practice material, not copied exam answers. Some clinical details vary by local protocol; bilirubin thresholds, phototherapy and exchange-transfusion decisions must always follow current local neonatal guidance and specialist advice. This site is for educational revision and is not a clinical decision tool.
 
-## Educational use
-Questions and answer keys are intended for revision and should be checked against current local guidance. They are not a substitute for clinical judgement.
+## Deploy on GitHub Pages
+1. Open repository **Settings → Pages**.
+2. Set **Build and deployment → Source** to **GitHub Actions**.
+3. The workflow at `.github/workflows/pages.yml` runs after commits to `main`.
+4. Open the **Actions** tab and wait for **Deploy practice site to GitHub Pages** to complete.
+5. Website: https://ahathi-cyber.github.io/growth-development-exams/
+
+## Prototype limitations
+This is a browser-only prototype. The objective answer keys are delivered to the browser and can be inspected; it is not secure for proctored or high-stakes exams. Scores and CSV exports remain on the user's device. There is no central results database or teacher dashboard. Secure server-side marking and central collection require a backend with answer keys stored server-side.
