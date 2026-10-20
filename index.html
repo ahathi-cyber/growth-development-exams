@@ -4,62 +4,94 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#132d4f">
-  <meta name="description" content="Final MBBS paediatrics growth and development practice exams: True/False and Single Best Answer questions.">
-  <title>Growth &amp; Development | Paediatrics Practice Exams</title>
+  <meta name="description" content="Final MBBS paediatrics practice exams with True/False, Single Best Answer and rubric-supported essay marking.">
+  <title>Paediatrics Practice Exams | Final MBBS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="top">
     <div class="brand">
-      <div class="mark" aria-hidden="true">G</div>
-      <div><strong>PAEDIATRICS</strong><span>GROWTH &amp; DEVELOPMENT</span></div>
+      <div class="mark" aria-hidden="true">P</div>
+      <div><strong>PAEDIATRICS</strong><span>FINAL MBBS PRACTICE EXAMS</span></div>
     </div>
-    <div class="tag">FINAL MBBS REVISION</div>
+    <div class="tag">REVISION • PRACTICE • REVIEW</div>
   </header>
 
   <main class="wrap">
     <section id="home">
       <div class="hero">
-        <div class="eyebrow"><span class="dot"></span> REVISION • PRACTICE • REVIEW</div>
-        <h1>Growth &amp;<br><em>Development.</em></h1>
-        <p class="intro">Build confidence in paediatric growth assessment, developmental milestones, puberty and common clinical presentations. Choose a question format to begin your practice session.</p>
-
-        <div class="stats" aria-label="Exam summary">
-          <div><b>30</b><span>T/F GROUPS</span></div>
-          <div><b>30</b><span>SBA QUESTIONS</span></div>
-          <div><b>150</b><span>MAX T/F POINTS</span></div>
-        </div>
-
-        <div class="mode-grid">
-          <button class="mode-card" type="button" data-mode="tf">
-            <span class="mode-icon" aria-hidden="true">T/F</span>
-            <span class="mode-title">True / False</span>
-            <span class="mode-desc">30 groups · 5 statements per group · True, False or Unsure</span>
-            <span class="mode-cta"><span>Start T/F practice</span><b aria-hidden="true">→</b></span>
+        <div class="eyebrow"><span class="dot"></span> EXAM PRACTICE</div>
+        <h1>Think clearly.<br><em>Revise confidently.</em></h1>
+        <p class="intro">Choose a paediatrics topic, attempt the paper without topic clues, then review answers and explanations after submission.</p>
+        <div class="topic-grid">
+          <button class="topic-card" type="button" data-topic="growth">
+            <span class="topic-kicker">TOPIC 01</span>
+            <span class="topic-title">Growth &amp; Development</span>
+            <span class="topic-desc">Growth assessment, developmental milestones, puberty and common clinical presentations.</span>
+            <span class="topic-cta">Choose this topic <b aria-hidden="true">→</b></span>
           </button>
-          <button class="mode-card" type="button" data-mode="sba">
-            <span class="mode-icon" aria-hidden="true">SBA</span>
-            <span class="mode-title">Single Best Answer</span>
-            <span class="mode-desc">30 clinical and knowledge-based questions with one best answer</span>
-            <span class="mode-cta"><span>Start SBA practice</span><b aria-hidden="true">→</b></span>
+          <button class="topic-card" type="button" data-topic="jaundice">
+            <span class="topic-kicker">TOPIC 02 · NEW</span>
+            <span class="topic-title">Neonatal Jaundice</span>
+            <span class="topic-desc">Timing, causes, bilirubin assessment, treatment principles, cholestasis and emergencies.</span>
+            <span class="topic-cta">Choose this topic <b aria-hidden="true">→</b></span>
           </button>
         </div>
-
-        <div class="note"><span aria-hidden="true">i</span><p><b>Before you begin</b><br>Work through each question, then submit to see your score and review your answers. You can export your results as a CSV file for your own records.</p></div>
+        <div class="note"><span aria-hidden="true">i</span><p><b>Exam mode</b><br>Question subtopics are hidden while you answer. Use the numbered navigator to move around the paper. Marking, explanations and topic labels appear after submission.</p></div>
       </div>
+    </section>
+
+    <section id="mode-select" class="hidden">
+      <button id="back-topics" class="text-btn" type="button">← Back to topics</button>
+      <div class="mode-heading">
+        <div class="eyebrow"><span class="dot"></span> SELECT YOUR PAPER</div>
+        <h1 id="selected-topic-title">Choose a <em>format.</em></h1>
+        <p id="selected-topic-desc" class="intro">Select the format you want to practise.</p>
+      </div>
+      <div class="mode-grid">
+        <button class="mode-card" type="button" data-mode="tf">
+          <span class="mode-icon" aria-hidden="true">T/F</span>
+          <span class="mode-title">True / False</span>
+          <span class="mode-desc">30 groups · 5 statements each. Mark every statement True or False in a compact table.</span>
+          <span class="mode-cta"><span>Start T/F paper</span><b aria-hidden="true">→</b></span>
+        </button>
+        <button class="mode-card" type="button" data-mode="sba">
+          <span class="mode-icon" aria-hidden="true">SBA</span>
+          <span class="mode-title">Single Best Answer</span>
+          <span class="mode-desc">30 questions with one best answer. No topic labels or category hints before submission.</span>
+          <span class="mode-cta"><span>Start SBA paper</span><b aria-hidden="true">→</b></span>
+        </button>
+        <button class="mode-card essay-mode-card hidden" id="essay-mode-card" type="button" data-mode="essay">
+          <span class="mode-icon" aria-hidden="true">ESS</span>
+          <span class="mode-title">Essay questions</span>
+          <span class="mode-desc">3 structured essays, 20 marks each, with a keyword-supported marking rubric and missing-point suggestions.</span>
+          <span class="mode-cta"><span>Start essay paper</span><b aria-hidden="true">→</b></span>
+        </button>
+      </div>
+      <div class="note"><span aria-hidden="true">i</span><p><b>About essay marking</b><br>The essay checker gives a provisional score by detecting key concepts and synonyms. It cannot fully understand every paraphrase, so review the suggested points and use the rubric as a formative self-assessment—not as an official examiner's mark.</p></div>
     </section>
 
     <section id="exam" class="hidden" aria-labelledby="q-title">
       <div class="exam-top">
-        <button id="back" class="text-btn" type="button">← Back to exam choices</button>
+        <button id="back" class="text-btn" type="button">← Back to paper choices</button>
         <span id="counter" class="counter">01 / 30</span>
       </div>
-      <div class="eyebrow" id="exam-label">TRUE / FALSE PRACTICE</div>
-      <div class="progress" role="progressbar" aria-label="Responses selected"><span id="progress-fill"></span></div>
+      <div class="eyebrow" id="exam-label">PRACTICE PAPER</div>
+      <div class="progress" role="progressbar" aria-label="Paper progress"><span id="progress-fill"></span></div>
+      <div class="nav-panel">
+        <div class="nav-topline"><strong>JUMP TO QUESTION</strong><span>Click any number to navigate</span></div>
+        <div id="question-nav" class="question-nav" aria-label="Question navigation"></div>
+        <div class="nav-legend">
+          <span><i class="legend-dot unanswered"></i> Not answered</span>
+          <span><i class="legend-dot partial"></i> Partly answered</span>
+          <span><i class="legend-dot answered"></i> Answered</span>
+          <span><i class="legend-dot current"></i> Current question</span>
+        </div>
+      </div>
       <div class="question-head">
-        <div class="eyebrow" id="q-number">GROUP 01</div>
-        <h2 id="q-title">Loading question…</h2>
-        <p id="q-stem" class="stem">Choose True, False, or Unsure for each statement.</p>
+        <div class="eyebrow" id="q-number">QUESTION 01</div>
+        <h2 id="q-title">Question 01</h2>
+        <p id="q-stem" class="stem"></p>
       </div>
       <div id="question-body"></div>
       <div class="exam-actions">
@@ -72,10 +104,11 @@
 
     <section id="results" class="hidden" aria-labelledby="results-heading">
       <div class="result-title">
-        <div class="eyebrow"><span class="dot"></span> PRACTICE SESSION COMPLETE</div>
+        <div class="eyebrow"><span class="dot"></span> PAPER COMPLETE</div>
         <h1 id="results-heading">Your <em>results.</em></h1>
-        <p class="intro">Use the review below to identify strengths and topics to revisit.</p>
+        <p class="intro">Review the correct answers, explanations and the concepts to revisit.</p>
       </div>
+      <div id="results-notice" class="note hidden"><span aria-hidden="true">i</span><p><b>Formative marking</b><br>Essay marks are estimated from detected key concepts. A relevant idea written in different words may not be detected automatically; use the rubric to self-review.</p></div>
       <div class="score-panel">
         <div class="score-label">YOUR SCORE</div>
         <div><strong id="score">0</strong><span id="out-of"> / 150</span></div>
@@ -83,20 +116,21 @@
       </div>
       <div class="result-actions">
         <button id="csv" class="btn primary" type="button">Export results (CSV)</button>
-        <button id="retry" class="btn secondary" type="button">Try this exam again</button>
-        <button id="dashboard" class="btn secondary" type="button">Back to exam choices</button>
+        <button id="retry" class="btn secondary" type="button">Try this paper again</button>
+        <button id="dashboard" class="btn secondary" type="button">Back to topics</button>
       </div>
       <h2 class="review-title">Answer review</h2>
       <div id="review-list"></div>
     </section>
 
     <footer>
-      <span>PAEDIATRICS · GROWTH &amp; DEVELOPMENT</span>
-      <span>FOR EDUCATIONAL REVISION</span>
+      <span>PAEDIATRICS · FINAL MBBS REVISION</span>
+      <span>FOR EDUCATIONAL USE · FOLLOW CURRENT LOCAL GUIDANCE</span>
     </footer>
   </main>
 
   <script src="questions.js"></script>
+  <script src="neonatal-jaundice.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
