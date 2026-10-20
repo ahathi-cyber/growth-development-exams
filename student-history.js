@@ -12,8 +12,14 @@
   const id=getId(),status=$('student-status'),list=$('student-history-list');
   if(!status||!list)return;
   const input=$('student-id'),go=$('student-continue');
-  if(input)input.value=id;
+  if(input && !input.value)input.value=id;
   if(go)go.disabled=!id;
+  const dashboardId=$('dashboard-student-id'),memorySummary=$('dashboard-memory-summary');
+  if(dashboardId)dashboardId.textContent=id?'Signed in as: '+id:'No student ID saved';
+  const allAttempts=getAll(),attempts=id&&Array.isArray(allAttempts[id])?allAttempts[id]:[];
+  if(memorySummary)memorySummary.textContent=attempts.length
+    ? attempts.length+' completed quiz '+(attempts.length===1?'attempt is':'attempts are')+' saved in this browser for this ID.'
+    : 'No completed quizzes saved for this ID on this browser yet.';
   status.textContent=id?'Student ID selected: '+id+'. You can continue to choose a topic and start a paper.':'No student ID selected.';
   list.replaceChildren();
   if(!id){list.innerHTML='<p class="history-empty">Set your student ID to view attempts saved in this browser.</p>';return;}
@@ -32,6 +38,8 @@
   if(!getId()){alert('Set your student ID first.');$('student-id')?.focus();return;}
   const signin=$('signin'),home=$('home');
   if(signin)signin.classList.add('hidden');
+  const title=$('signin-title');if(title)title.innerHTML='Welcome back.<br><em>Let’s get focused.</em>';
+  const intro=$('signin')?.querySelector('.intro');if(intro)intro.textContent='Enter your student ID to open your personal practice dashboard.';
   if(home)home.classList.remove('hidden');
   const grid=home?.querySelector('.subject-folder-grid');
   $('mode-select')?.classList.add('hidden');
@@ -62,6 +70,18 @@
    $('student-id')?.focus();
   });
   $('student-continue')?.addEventListener('click',continueToQuizzes);
+  $('manage-account')?.addEventListener('click',()=>{
+   const signin=$('signin'),home=$('home');
+   if(home)home.classList.add('hidden');
+   if(signin)signin.classList.remove('hidden');
+   const title=$('signin-title');
+   if(title)title.innerHTML='Your account.<br><em>Your progress.</em>';
+   const intro=$('signin')?.querySelector('.intro');
+   if(intro)intro.textContent='Update your student ID or review the quiz history saved for this browser.';
+   render();
+   $('student-id')?.focus();
+   window.scrollTo({top:0,behavior:'smooth'});
+  });
   render();
   const signin=$('signin'),home=$('home');
   if(getId()){if(signin)signin.classList.add('hidden');if(home)home.classList.remove('hidden');}
