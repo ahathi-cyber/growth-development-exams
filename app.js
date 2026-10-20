@@ -14,7 +14,7 @@ const hide=id=>$(id).classList.add('hidden');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const topicLabel=()=>currentTopic==='jaundice'?'Neonatal Jaundice':'Growth & Development';
 const formatLabel=()=>mode==='tf'?'TRUE / FALSE':mode==='sba'?'SINGLE BEST ANSWER':'ESSAY QUESTIONS';
-function data(){return currentBank[mode];}
+function data(){return currentBank[mode==='essay'?'essays':mode];}
 function tfItem(q,si,qi=index){
  const raw=q.statements[si];
  if(typeof raw==='string')return {text:raw,answer:currentTopic==='growth'?Boolean(TF_KEY[qi][si]):false,explanation:''};
@@ -50,7 +50,8 @@ function start(which){
   alert('Essay practice is currently available for Neonatal Jaundice only.');
   return;
  }
- if(!bank||!Array.isArray(bank[which])||bank[which].length===0){
+ const paperKey=which==='essay'?'essays':which;
+ if(!bank||!Array.isArray(bank[paperKey])||bank[paperKey].length===0){
   alert('This paper is not available yet. Please return to topic selection and try again.');
   return;
  }
