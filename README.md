@@ -5,6 +5,7 @@ A responsive educational revision site with topic selection, True/False, Single 
 ## Topics
 - **Growth & Development:** existing 30 True/False groups and 30 SBA questions.
 - **Neonatal Jaundice:** 30 True/False groups (5 statements per group), 30 SBA questions, and 3 structured essay questions (20 marks each).
+- **Schizophrenia (Psychiatry):** 30 True/False groups (5 statements per group), 30 SBA questions, and 3 structured essay questions (20 marks each). Covers clinical features, first-episode assessment, differential diagnosis, risk, antipsychotic treatment and adverse effects, clozapine, psychosocial interventions and recovery.
 
 ## Exam interface
 - Compact table layout for True/False statements; only True and False are offered.
@@ -20,7 +21,7 @@ A responsive educational revision site with topic selection, True/False, Single 
 - **Essay scoring is provisional keyword-supported formative feedback, not true semantic marking.** The detector can miss valid paraphrases and may sometimes match a phrase without fully understanding it. Review the rubric manually; it must not be used for high-stakes or official grading without human review.
 
 ## Sources and clinical caution
-The Neonatal Jaundice content was drafted with reference to the project's *Illustrated Textbook of Paediatrics*, *Nelson Essentials of Pediatrics*, and the supplied Paediatrics Categorized MCQ collection. Questions and rubric wording are original practice material, not copied exam answers. Some clinical details vary by local protocol; bilirubin thresholds, phototherapy and exchange-transfusion decisions must always follow current local neonatal guidance and specialist advice. This site is for educational revision and is not a clinical decision tool.
+The Neonatal Jaundice content was drafted with reference to the project's *Illustrated Textbook of Paediatrics*, *Nelson Essentials of Pediatrics*, and the supplied Paediatrics Categorized MCQ collection. The Schizophrenia practice bank was shaped around themes in the uploaded *Psychiatry – Categorized MCQ* collections (including the September 2025 and January 2024 additions) and *Psych MCQs by M*: first-rank symptoms and psychopathology, differential diagnosis, prognosis, cannabis use, antipsychotic adverse effects, clozapine, neuroleptic malignant syndrome and psychosocial management. Questions and rubric wording are newly written practice material, not verbatim copies of exam questions. Clinical guidance and diagnostic criteria can vary by jurisdiction and change over time; use current local guidelines, clinical supervision and specialist advice. This site is for educational revision and is not a clinical decision tool.
 
 ## Deploy on GitHub Pages
 1. Open repository **Settings → Pages**.
