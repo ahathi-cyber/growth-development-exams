@@ -30,8 +30,10 @@
  }
  function continueToQuizzes(){
   if(!getId()){alert('Set your student ID first.');$('student-id')?.focus();return;}
-  const home=$('home'),grid=home?.querySelector('.topic-grid');
+  const signin=$('signin'),home=$('home');
+  if(signin)signin.classList.add('hidden');
   if(home)home.classList.remove('hidden');
+  const grid=home?.querySelector('.subject-folder-grid');
   $('mode-select')?.classList.add('hidden');
   $('exam')?.classList.add('hidden');
   $('results')?.classList.add('hidden');
@@ -53,11 +55,17 @@
   });
   $('student-clear')?.addEventListener('click',()=>{
    try{localStorage.removeItem(ID_KEY);}catch(e){}
+   const signin=$('signin'),home=$('home');
+   if(home)home.classList.add('hidden');
+   if(signin)signin.classList.remove('hidden');
    render();
    $('student-id')?.focus();
   });
   $('student-continue')?.addEventListener('click',continueToQuizzes);
   render();
+  const signin=$('signin'),home=$('home');
+  if(getId()){if(signin)signin.classList.add('hidden');if(home)home.classList.remove('hidden');}
+  else {if(home)home.classList.add('hidden');if(signin)signin.classList.remove('hidden');}
  }
  window.saveQuizAttempt=function(attempt){
   const id=getId();

@@ -18,12 +18,15 @@
   </header>
 
   <main class="wrap">
-    <section id="home">
+    <section id="home" class="hidden">
       <div class="hero">
         <div class="eyebrow"><span class="dot"></span> EXAM PRACTICE</div>
         <h1>Think clearly.<br><em>Revise confidently.</em></h1>
         <p class="intro">Choose a topic, attempt the paper without topic clues, then review answers and explanations after submission.</p>
-        <div class="topic-grid">
+        <div class="subject-folder-grid">
+          <section class="subject-folder paediatrics-folder" aria-labelledby="paediatrics-folder-title">
+            <div class="folder-icon" aria-hidden="true">✚</div><div><span class="folder-kicker">FOLDER 01</span><h2 id="paediatrics-folder-title">Paediatrics</h2><p>Child health, growth, development and neonatal care.</p></div>
+            <div class="topic-grid">
           <button class="topic-card" type="button" data-topic="growth">
             <span class="topic-kicker">TOPIC 01</span>
             <span class="topic-title">Growth &amp; Development</span>
@@ -36,6 +39,11 @@
             <span class="topic-desc">Timing, causes, bilirubin assessment, treatment principles, cholestasis and emergencies.</span>
             <span class="topic-cta">Choose this topic <b aria-hidden="true">→</b></span>
           </button>
+            </div>
+          </section>
+          <section class="subject-folder psychiatry-folder" aria-labelledby="psychiatry-folder-title">
+            <div class="folder-icon" aria-hidden="true">✧</div><div><span class="folder-kicker">FOLDER 02</span><h2 id="psychiatry-folder-title">Psychiatry</h2><p>Core psychiatry and child & adolescent mental health.</p></div>
+            <div class="topic-grid">
           <button class="topic-card" type="button" data-topic="child-psychiatry">
             <span class="topic-kicker">TOPIC 04 · NEW PSYCHIATRY</span>
             <span class="topic-title">Child Psychiatry</span>
@@ -49,25 +57,30 @@
             <span class="topic-cta">Choose this topic <b aria-hidden="true">→</b></span>
           </button>
         </div>
+            </div>
+          </section>
+        </div>
         <div class="note"><span aria-hidden="true">i</span><p><b>Exam mode</b><br>Question subtopics are hidden while you answer. Use the numbered navigator to move around the paper. Marking, explanations and topic labels appear after submission.</p></div>
       </div>
     </section>
 
-    <section id="student-panel" class="student-panel">
-      <h2>My quiz history</h2>
-      <p class="intro">Enter your email address or registration number to keep completed attempts grouped on this browser.</p>
-      <div class="student-controls">
-        <label for="student-id">Email or registration number</label>
-        <input id="student-id" type="text" autocomplete="username" placeholder="e.g. registration number or email">
-        <button id="student-save" class="btn primary" type="button">Set student ID</button>
-        <button id="student-clear" class="btn secondary" type="button">Switch student</button>
-        <button id="student-continue" class="btn primary" type="button">Continue to quizzes →</button>
+    <section id="signin" class="signin-shell" aria-labelledby="signin-title">
+      <div class="signin-card">
+        <div class="signin-mark">M</div>
+        <div class="eyebrow"><span class="dot"></span> YOUR REVISION SPACE</div>
+        <h1 id="signin-title">Welcome back.<br><em>Let’s get focused.</em></h1>
+        <p class="intro">Enter your student ID to open your personal practice dashboard.</p>
+        <div class="student-controls">
+          <label for="student-id">Student email or registration number</label>
+          <input id="student-id" type="text" autocomplete="username" placeholder="Enter your student ID">
+          <button id="student-save" class="btn primary" type="button">Sign in and continue <span aria-hidden="true">→</span></button>
+          <button id="student-clear" class="text-btn signin-switch" type="button">Switch / clear student</button>
+        </div>
+        <p id="student-status" class="student-status" role="status">Your revision dashboard is ready when you are.</p>
+        <details class="history-details"><summary>View my saved quiz history</summary><div id="student-history-list"></div></details>
+        <p class="student-privacy-note">This version saves your ID and quiz history in this browser only. It is not a verified account and does not sync across devices.</p>
       </div>
-      <p id="student-status" class="student-status">No student ID selected.</p>
-      <div id="student-history-list"></div>
-      <p class="student-privacy-note">Important: this first version stores history only in this browser and is not a secure login. Other people using this device may be able to view browser data, and the ID is not verified. Use a verified sign-in and database before storing private or official student records.</p>
     </section>
-
     <section id="mode-select" class="hidden">
       <button id="back-topics" class="text-btn" type="button">← Back to topics</button>
       <div class="mode-heading">
@@ -160,7 +173,7 @@
   <script src="neonatal-jaundice.js"></script>
   <script src="schizophrenia.js?v=20261020-1"></script>
   <script src="child-psychiatry.js?v=20261020-2"></script>
-  <script src="student-history.js?v=20261020-2"></script>
-  <script src="app.js?v=20261020-child-psychiatry-history-2"></script>
+  <script src="student-history.js?v=20261020-premium-1"></script>
+  <script src="app.js?v=20261020-premium-1"></script>
 </body>
 </html>
