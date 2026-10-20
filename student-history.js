@@ -111,11 +111,13 @@
   if(!id){const status=$('student-status');if(status)status.textContent='Quiz completed, but history was not saved. Set your student ID on the home page first.';return false;}
   const all=getAll();
   if(!Array.isArray(all[id]))all[id]=[];
-  all[id].push({...attempt,completedAt:attempt.completedAt||new Date().toISOString()});
-  if(saveAll(all))render();
-  else alert('Could not save history in this browser. Export your result as CSV instead.');
+  const {responses,...localSummary}=attempt;
+  all[id].push({...localSummary,completedAt:attempt.completedAt||new Date().toISOString()});
+  const saved=saveAll(all);
+  if(saved)render();
+  else alert('Could not save history in this browser. The Drive upload will still be attempted.');
   uploadAttemptToDrive(attempt,id);
-  return saveAll(all);
+  return saved;
  };
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
  else init();
