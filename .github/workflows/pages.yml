@@ -56,6 +56,41 @@ jobs:
           }
           console.log('Validated schizophrenia: 30 T/F groups, 30 SBA questions, 3 essay rubrics of 20 marks each.');
           NODE
+      - name: Syntax-check scripts and validate every practice bank
+        run: |
+          set -e
+          node --check app.js
+          node --check child-psychiatry.js
+          node --check student-history.js
+          node --check schizophrenia.js
+          node --check neonatal-jaundice.js
+          node - <<'NODE'
+          global.window = {};
+          require('./child-psychiatry.js');
+          const bank = global.window.CHILD_PSYCHIATRY_BANK;
+          if (!bank || bank.tf.length !== 30 || bank.sba.length !== 32) {
+            throw new Error('Child Psychiatry bank must contain 30 T/F groups and 32 SBA questions; got ' +
+              (bank?.tf?.length ?? 'missing') + ' and ' + (bank?.sba?.length ?? 'missing'));
+          }
+          for (const [i, group] of bank.tf.entries()) {
+            if (!Array.isArray(group.statements) || group.statements.length !== 5) throw new Error('Child Psychiatry T/F group ' + (i + 1) + ' must have five statements.');
+            for (const [j, item] of group.statements.entries()) {
+              if (!Array.isArray(item) || item.length < 2 || typeof item[0] !== 'string' || typeof item[1] !== 'boolean') throw new Error('Invalid T/F statement at group ' + (i + 1) + ', item ' + (j + 1));
+            }
+          }
+          for (const [i, q] of bank.sba.entries()) {
+            if (!q.stem || !q.options || Object.keys(q.options).length !== 5 || !q.options[q.answer]) throw new Error('SBA question ' + (i + 1) + ' must have a stem, five options and a valid answer key.');
+          }
+          const html = require('fs').readFileSync('index.html', 'utf8');
+          const history = require('fs').readFileSync('student-history.js', 'utf8');
+          const app = require('fs').readFileSync('app.js', 'utf8');
+          for (const id of ['student-id','student-save','student-continue','student-status','student-history-list']) {
+            if (!html.includes('id="' + id + '"')) throw new Error('Missing registration/history element: ' + id);
+          }
+          if (!history.includes("localStorage.setItem(ID_KEY,id)") || !history.includes("continueToQuizzes();")) throw new Error('Student registration must save the ID and continue to quiz topic selection.');
+          if (!app.includes("if(typeof saveQuizAttempt==='function')saveQuizAttempt(")) throw new Error('Quiz submission must save attempt history.');
+          console.log('PASS: JS syntax, 30 Child Psychiatry T/F groups, 32 keyed SBA questions, registration continuation and history hook.');
+          NODE
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
