@@ -12,7 +12,7 @@ const $=id=>document.getElementById(id);
 const show=id=>$(id).classList.remove('hidden');
 const hide=id=>$(id).classList.add('hidden');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const topicLabel=()=>currentTopic==='jaundice'?'Neonatal Jaundice':currentTopic==='schizophrenia'?'Schizophrenia':'Growth & Development';
+const topicLabel=()=>currentTopic==='jaundice'?'Neonatal Jaundice':currentTopic==='schizophrenia'?'Schizophrenia':currentTopic==='child-psychiatry'?'Child Psychiatry':'Growth & Development';
 const formatLabel=()=>mode==='tf'?'TRUE / FALSE':mode==='sba'?'SINGLE BEST ANSWER':'ESSAY QUESTIONS';
 function data(){return currentBank[mode==='essay'?'essays':mode];}
 function tfItem(q,si,qi=index){
@@ -33,21 +33,22 @@ async function loadBank(){
   if(growthBank.tf.length!==30||growthBank.sba.length!==30)throw new Error('Growth & Development question count check failed.');
   if(!window.NEONATAL_JAUNDICE_BANK||window.NEONATAL_JAUNDICE_BANK.tf.length!==30||window.NEONATAL_JAUNDICE_BANK.sba.length!==30||window.NEONATAL_JAUNDICE_BANK.essays.length!==3)throw new Error('Neonatal Jaundice question bank did not load correctly.');
   if(!window.SCHIZOPHRENIA_BANK||window.SCHIZOPHRENIA_BANK.tf.length!==30||window.SCHIZOPHRENIA_BANK.sba.length!==30||window.SCHIZOPHRENIA_BANK.essays.length!==3)throw new Error('Schizophrenia question bank did not load correctly.');
+  if(!window.CHILD_PSYCHIATRY_BANK||window.CHILD_PSYCHIATRY_BANK.tf.length!==30||window.CHILD_PSYCHIATRY_BANK.sba.length!==30)throw new Error('Child Psychiatry question bank did not load correctly.');
  }catch(e){
   $('home').innerHTML='<h1>Question bank could not be loaded</h1><p class="intro">Please check that both question-bank files are available in the repository.</p><pre>'+esc(e.message)+'</pre>';
   throw e;
  }
 }
 function selectTopic(topic){
- currentTopic=topic;currentBank=topic==='growth'?growthBank:topic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:window.SCHIZOPHRENIA_BANK;
- $('selected-topic-title').innerHTML=topic==='jaundice'?'Neonatal Jaundice <em>practice.</em>':topic==='schizophrenia'?'Schizophrenia <em>practice.</em>':'Growth &amp; Development <em>practice.</em>';
- $('selected-topic-desc').textContent=topic==='jaundice'?'Choose True/False, Single Best Answer or structured essay practice. The essay paper includes a formative marking rubric.':topic==='schizophrenia'?'Practise core concepts, diagnosis, clinical features, risk assessment, treatment and recovery. Essays use a formative point-based rubric.':'Choose True/False or Single Best Answer practice for Growth & Development.';
+ currentTopic=topic;currentBank=topic==='growth'?growthBank:topic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:topic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:window.SCHIZOPHRENIA_BANK;
+ $('selected-topic-title').innerHTML=topic==='jaundice'?'Neonatal Jaundice <em>practice.</em>':topic==='schizophrenia'?'Schizophrenia <em>practice.</em>':topic==='child-psychiatry'?'Child Psychiatry <em>practice.</em>':'Growth &amp; Development <em>practice.</em>';
+ $('selected-topic-desc').textContent=topic==='jaundice'?'Choose True/False, Single Best Answer or structured essay practice. The essay paper includes a formative marking rubric.':topic==='schizophrenia'?'Practise core concepts, diagnosis, clinical features, risk assessment, treatment and recovery. Essays use a formative point-based rubric.':topic==='child-psychiatry'?'Practise child development, autism, ADHD, emotional and behavioural disorders, safeguarding and management.':'Choose True/False or Single Best Answer practice for Growth & Development.';
  if(topic==='jaundice'||topic==='schizophrenia')show('essay-mode-card');else hide('essay-mode-card');
  $('essay-mode-card').querySelector('.mode-desc').textContent=topic==='schizophrenia'?'3 schizophrenia essays · 20 marks each · point-by-point rubric and missing-point suggestions.':'3 neonatal jaundice essays · 20 marks each · point-by-point rubric and missing-point suggestions.';
  hide('home');hide('exam');hide('results');show('mode-select');window.scrollTo({top:0,behavior:'smooth'});
 }
 function start(which){
- const bank=currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:window.SCHIZOPHRENIA_BANK;
+ const bank=currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:window.SCHIZOPHRENIA_BANK;
  const paperKey=which==='essay'?'essays':which;
  if(!bank||!Array.isArray(bank[paperKey])||bank[paperKey].length===0){
   alert('This paper is not available yet. Please return to topic selection and try again.');
@@ -211,7 +212,7 @@ function exportCSV(){
  });
  rows.push([]);rows.push(['TOTAL',topicLabel()+' '+mode.toUpperCase(),'', '', '',results.score,results.max]);
  const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');
- const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(currentTopic==='jaundice'?'neonatal-jaundice':currentTopic==='schizophrenia'?'schizophrenia':'growth-development')+'-'+mode+'-results.csv';a.click();URL.revokeObjectURL(url);
+ const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(currentTopic==='jaundice'?'neonatal-jaundice':currentTopic==='schizophrenia'?'schizophrenia':currentTopic==='child-psychiatry'?'child-psychiatry':'growth-development')+'-'+mode+'-results.csv';a.click();URL.revokeObjectURL(url);
 }
 document.querySelectorAll('[data-topic]').forEach(btn=>btn.addEventListener('click',()=>selectTopic(btn.dataset.topic)));
 document.querySelectorAll('[data-mode]').forEach(btn=>btn.addEventListener('click',()=>start(btn.dataset.mode)));
