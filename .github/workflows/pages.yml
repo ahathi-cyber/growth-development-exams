@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Validate and normalize bundled question bank
         run: |
           node - <<'NODE'
@@ -84,10 +84,10 @@ jobs:
           const html = require('fs').readFileSync('index.html', 'utf8');
           const history = require('fs').readFileSync('student-history.js', 'utf8');
           const app = require('fs').readFileSync('app.js', 'utf8');
-          for (const id of ['student-id','student-save','student-continue','student-status','student-history-list']) {
+          for (const id of ['signin','home','student-id','student-save','student-status','student-history-list']) {
             if (!html.includes('id="' + id + '"')) throw new Error('Missing registration/history element: ' + id);
           }
-          if (!history.includes("localStorage.setItem(ID_KEY,id)") || !history.includes("continueToQuizzes();")) throw new Error('Student registration must save the ID and continue to quiz topic selection.');
+          if (!history.includes("localStorage.setItem(ID_KEY,id)") || !history.includes("continueToQuizzes();") || !history.includes("signin.classList.add('hidden')") || !history.includes("home.classList.remove('hidden')")) throw new Error('Student registration must save the ID, hide sign-in and continue to the topic dashboard.');
           if (!app.includes("if(typeof saveQuizAttempt==='function')saveQuizAttempt(")) throw new Error('Quiz submission must save attempt history.');
           console.log('PASS: JS syntax, 30 Child Psychiatry T/F groups, 32 keyed SBA questions, registration continuation and history hook.');
           NODE
