@@ -2,7 +2,8 @@
 (function(){
  'use strict';
  const ID_KEY='finalmbbs.studentId.v1';
- const HISTORY_KEY='finalmbbs.attempts.v1';\n const DRIVE_STATUS_ID='drive-sync-status';
+ const HISTORY_KEY='finalmbbs.attempts.v1';
+ const DRIVE_STATUS_ID='drive-sync-status';
  const $=id=>document.getElementById(id);
  const normalise=s=>String(s||'').trim().toLowerCase();
  const getId=()=>{try{return normalise(localStorage.getItem(ID_KEY));}catch(e){return '';}};
