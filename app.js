@@ -45,9 +45,20 @@ function selectTopic(topic){
  hide('home');hide('exam');hide('results');show('mode-select');window.scrollTo({top:0,behavior:'smooth'});
 }
 function start(which){
- mode=which;index=0;currentBank=currentTopic==='growth'?growthBank:window.NEONATAL_JAUNDICE_BANK;
+ const bank=currentTopic==='growth'?growthBank:window.NEONATAL_JAUNDICE_BANK;
+ if(which==='essay'&&currentTopic!=='jaundice'){
+  alert('Essay practice is currently available for Neonatal Jaundice only.');
+  return;
+ }
+ if(!bank||!Array.isArray(bank[which])||bank[which].length===0){
+  alert('This paper is not available yet. Please return to topic selection and try again.');
+  return;
+ }
+ currentBank=bank;mode=which;index=0;
  answers[mode]={};essaySelfReview={};results=null;
- hide('home');hide('mode-select');hide('results');show('exam');render();window.scrollTo({top:0,behavior:'smooth'});
+ hide('home');hide('mode-select');hide('results');show('exam');
+ render();
+ window.scrollTo({top:0,behavior:'smooth'});
 }
 function getAnswer(qi,si){return mode==='tf'?(answers.tf[qi]?.[si]??''):mode==='sba'?(answers.sba[qi]??''):(answers.essay[qi]??'');}
 function answeredCount(){
@@ -83,8 +94,8 @@ function renderProgress(){
 function render(){
  const q=data()[index];
  $('exam-label').textContent=topicLabel().toUpperCase()+' · '+formatLabel();
- $('counter').textContent=String(index+1).padStart(2,'0')+' / '+data().length;
- $('q-number').textContent=(mode==='tf'?'GROUP ':'QUESTION ')+String(index+1).padStart(2,'0');
+ $('counter').textContent=String(index+1).padStart(2,'0')+' / '+data().length+(mode==='essay'?' essays':'');
+ $('q-number').textContent=mode==='tf'?'GROUP '+String(index+1).padStart(2,'0'):mode==='essay'?'ESSAY '+String(index+1).padStart(2,'0'):'QUESTION '+String(index+1).padStart(2,'0');
  $('q-title').textContent=mode==='tf'?'Statement group '+String(index+1).padStart(2,'0'):mode==='essay'?'Essay question '+String(index+1).padStart(2,'0'):'Question '+String(index+1).padStart(2,'0');
  $('q-stem').textContent=mode==='tf'?'Mark each statement True or False.':mode==='sba'?q.stem:q.prompt;
  const body=$('question-body');body.innerHTML='';
