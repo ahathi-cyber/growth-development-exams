@@ -35,6 +35,27 @@ jobs:
           fs.writeFileSync('questions.js', 'window.QUESTION_BANK_GZIP_B64 = "' + canonical + '";\n');
           console.log('Validated and normalized', bank.tf.length, 'T/F groups and', bank.sba.length, 'SBA questions.');
           NODE
+      - name: Validate schizophrenia practice bank
+        run: |
+          node - <<'NODE'
+          global.window = {};
+          require('./schizophrenia.js');
+          const bank = global.window.SCHIZOPHRENIA_BANK;
+          if (!bank || bank.tf.length !== 30 || bank.sba.length !== 30 || bank.essays.length !== 3) {
+            throw new Error('Schizophrenia bank must contain 30 T/F groups, 30 SBA questions and 3 essays.');
+          }
+          for (const [i, essay] of bank.essays.entries()) {
+            const total = essay.rubric.reduce((sum, criterion) => sum + criterion.points, 0);
+            if (essay.max !== 20 || total !== 20) throw new Error('Essay ' + (i + 1) + ' rubric must total exactly 20 marks; got ' + total);
+          }
+          for (const [i, group] of bank.tf.entries()) {
+            if (!Array.isArray(group.statements) || group.statements.length !== 5) throw new Error('T/F group ' + (i + 1) + ' must have five statements.');
+          }
+          for (const [i, q] of bank.sba.entries()) {
+            if (!q.options || Object.keys(q.options).length !== 5 || !q.options[q.answer]) throw new Error('SBA question ' + (i + 1) + ' must have five options and a valid answer key.');
+          }
+          console.log('Validated schizophrenia: 30 T/F groups, 30 SBA questions, 3 essay rubrics of 20 marks each.');
+          NODE
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
