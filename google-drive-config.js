@@ -1,2 +1,2 @@
-/* Paste the deployed Google Apps Script web-app URL here. Leave blank until configured. */
-window.GOOGLE_DRIVE_SUBMISSION_ENDPOINT = '';
+/* Google Apps Script web-app endpoint for student answer submissions. */
+window.GOOGLE_DRIVE_SUBMISSION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbygqwDfBXcR77R-zajm2iaXGs95DMbyJrcnWTYKM7tXy22Nqcj5M91qMTMdtyYy3woGYA/exec';
