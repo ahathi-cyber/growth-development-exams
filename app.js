@@ -158,7 +158,24 @@ function calculate(){
  return {score,max:per.reduce((n,r)=>n+r.max,0),per};
 }
 function categoryTag(category){return '<span class="category-tag">REVIEW TOPIC · '+esc(category||'General')+'</span>';}
-function submit(){
+
+function buildSubmissionResponses(){
+ const rows=[];
+ results.per.forEach((r,qi)=>{
+  if(mode==='tf'){
+   r.question.statements.forEach((_,si)=>{
+    const item=r.items[si];
+    rows.push({questionNumber:qi+1,statementNumber:si+1,category:r.category,prompt:tfItem(r.question,si,qi).text,studentAnswer:item.answer==='1'?'True':item.answer==='0'?'False':'Blank',correctAnswer:item.key==='1'?'True':'False',correct:item.correct,points:item.points,maxPoints:1,explanation:item.explanation||''});
+   });
+  }else if(mode==='sba'){
+   rows.push({questionNumber:qi+1,category:r.category,prompt:r.question.stem,options:r.question.options,studentAnswer:r.answer||'Blank',correctAnswer:r.key,correct:r.correct,points:r.score,maxPoints:r.max,explanation:r.question.explanation||''});
+  }else{
+   rows.push({questionNumber:qi+1,category:r.category,prompt:r.question.prompt,studentAnswer:r.answer||'',points:r.score,maxPoints:r.max,rubric:r.rubric.map(c=>({criterion:c.label,points:c.points,detected:c.detected,feedback:c.feedback})),selfReviewedCriteria:essaySelfReview[qi]||[]});
+  }
+ });
+ return rows;
+}
+\nfunction submit(){
  results=calculate();hide('exam');show('results');
  $('score').textContent=results.score;$('out-of').textContent=' / '+results.max;
  const pct=results.max?results.score/results.max*100:0;
@@ -192,7 +209,7 @@ function submit(){
   if(input.checked){if(!essaySelfReview[qi].includes(ri))essaySelfReview[qi].push(ri);}else essaySelfReview[qi]=essaySelfReview[qi].filter(n=>n!==ri);
   updateEssayScoreDisplay(qi);
  }));
- if(typeof saveQuizAttempt==='function')saveQuizAttempt({topic:topicLabel(),mode:mode.toUpperCase(),score:results.score,max:results.max,completedAt:new Date().toISOString()});
+ if(typeof saveQuizAttempt==='function')saveQuizAttempt({topic:topicLabel(),topicKey:currentTopic,mode:mode.toUpperCase(),score:results.score,max:results.max,completedAt:new Date().toISOString(),responses:buildSubmissionResponses()});
  window.scrollTo({top:0,behavior:'smooth'});
 }
 function updateEssayScoreDisplay(qi){
