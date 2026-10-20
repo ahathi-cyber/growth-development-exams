@@ -33,7 +33,7 @@ async function loadBank(){
   if(growthBank.tf.length!==30||growthBank.sba.length!==30)throw new Error('Growth & Development question count check failed.');
   if(!window.NEONATAL_JAUNDICE_BANK||window.NEONATAL_JAUNDICE_BANK.tf.length!==30||window.NEONATAL_JAUNDICE_BANK.sba.length!==30||window.NEONATAL_JAUNDICE_BANK.essays.length!==3)throw new Error('Neonatal Jaundice question bank did not load correctly.');
   if(!window.SCHIZOPHRENIA_BANK||window.SCHIZOPHRENIA_BANK.tf.length!==30||window.SCHIZOPHRENIA_BANK.sba.length!==30||window.SCHIZOPHRENIA_BANK.essays.length!==3)throw new Error('Schizophrenia question bank did not load correctly.');
-  if(!window.CHILD_PSYCHIATRY_BANK||window.CHILD_PSYCHIATRY_BANK.tf.length!==30||window.CHILD_PSYCHIATRY_BANK.sba.length!==30)throw new Error('Child Psychiatry question bank did not load correctly.');
+  if(!window.CHILD_PSYCHIATRY_BANK||window.CHILD_PSYCHIATRY_BANK.tf.length!==30||window.CHILD_PSYCHIATRY_BANK.sba.length!==32)throw new Error('Child Psychiatry question bank did not load correctly.');
  }catch(e){
   $('home').innerHTML='<h1>Question bank could not be loaded</h1><p class="intro">Please check that both question-bank files are available in the repository.</p><pre>'+esc(e.message)+'</pre>';
   throw e;
@@ -45,6 +45,8 @@ function selectTopic(topic){
  $('selected-topic-desc').textContent=topic==='jaundice'?'Choose True/False, Single Best Answer or structured essay practice. The essay paper includes a formative marking rubric.':topic==='schizophrenia'?'Practise core concepts, diagnosis, clinical features, risk assessment, treatment and recovery. Essays use a formative point-based rubric.':topic==='child-psychiatry'?'Practise child development, autism, ADHD, emotional and behavioural disorders, safeguarding and management.':'Choose True/False or Single Best Answer practice for Growth & Development.';
  if(topic==='jaundice'||topic==='schizophrenia')show('essay-mode-card');else hide('essay-mode-card');
  $('essay-mode-card').querySelector('.mode-desc').textContent=topic==='schizophrenia'?'3 schizophrenia essays · 20 marks each · point-by-point rubric and missing-point suggestions.':'3 neonatal jaundice essays · 20 marks each · point-by-point rubric and missing-point suggestions.';
+ document.querySelector('[data-mode="tf"] .mode-desc').textContent=topic==='child-psychiatry'?'30 groups · 5 statements each. Mark each statement True or False.':'30 groups · 5 statements each. Mark every statement True or False in a compact table.';
+ document.querySelector('[data-mode="sba"] .mode-desc').textContent=topic==='child-psychiatry'?'32 single-best-answer questions covering core child psychiatry topics.':'30 questions with one best answer. No topic labels or category hints before submission.';
  hide('home');hide('exam');hide('results');show('mode-select');window.scrollTo({top:0,behavior:'smooth'});
 }
 function start(which){
