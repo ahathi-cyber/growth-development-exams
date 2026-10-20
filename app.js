@@ -190,6 +190,7 @@ function submit(){
   if(input.checked){if(!essaySelfReview[qi].includes(ri))essaySelfReview[qi].push(ri);}else essaySelfReview[qi]=essaySelfReview[qi].filter(n=>n!==ri);
   updateEssayScoreDisplay(qi);
  }));
+ if(typeof saveQuizAttempt==='function')saveQuizAttempt({topic:topicLabel(),mode:mode.toUpperCase(),score:results.score,max:results.max,completedAt:new Date().toISOString()});
  window.scrollTo({top:0,behavior:'smooth'});
 }
 function updateEssayScoreDisplay(qi){
