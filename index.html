@@ -36,6 +36,12 @@
             <span class="topic-desc">Timing, causes, bilirubin assessment, treatment principles, cholestasis and emergencies.</span>
             <span class="topic-cta">Choose this topic <b aria-hidden="true">→</b></span>
           </button>
+          <button class="topic-card" type="button" data-topic="child-psychiatry">
+            <span class="topic-kicker">TOPIC 04 · NEW PSYCHIATRY</span>
+            <span class="topic-title">Child Psychiatry</span>
+            <span class="topic-desc">Developmental assessment, autism, ADHD, emotional and behavioural disorders, safeguarding and management.</span>
+            <span class="topic-cta">Choose this topic <b aria-hidden="true">→</b></span>
+          </button>
           <button class="topic-card" type="button" data-topic="schizophrenia">
             <span class="topic-kicker">TOPIC 03 · PSYCHIATRY</span>
             <span class="topic-title">Schizophrenia</span>
@@ -45,6 +51,20 @@
         </div>
         <div class="note"><span aria-hidden="true">i</span><p><b>Exam mode</b><br>Question subtopics are hidden while you answer. Use the numbered navigator to move around the paper. Marking, explanations and topic labels appear after submission.</p></div>
       </div>
+    </section>
+
+    <section id="student-panel" class="student-panel">
+      <h2>My quiz history</h2>
+      <p class="intro">Enter your email address or registration number to keep completed attempts grouped on this browser.</p>
+      <div class="student-controls">
+        <label for="student-id">Email or registration number</label>
+        <input id="student-id" type="text" autocomplete="username" placeholder="e.g. registration number or email">
+        <button id="student-save" class="btn primary" type="button">Set student ID</button>
+        <button id="student-clear" class="btn secondary" type="button">Switch student</button>
+      </div>
+      <p id="student-status" class="student-status">No student ID selected.</p>
+      <div id="student-history-list"></div>
+      <p class="student-privacy-note">Important: this first version stores history only in this browser and is not a secure login. Other people using this device may be able to view browser data, and the ID is not verified. Use a verified sign-in and database before storing private or official student records.</p>
     </section>
 
     <section id="mode-select" class="hidden">
@@ -138,6 +158,8 @@
   <script src="questions.js"></script>
   <script src="neonatal-jaundice.js"></script>
   <script src="schizophrenia.js?v=20261020-1"></script>
-  <script src="app.js?v=20261020-schizophrenia-1"></script>
+  <script src="child-psychiatry.js?v=20261020-1"></script>
+  <script src="student-history.js?v=20261020-1"></script>
+  <script src="app.js?v=20261020-child-psychiatry-history-1"></script>
 </body>
 </html>
