@@ -18,6 +18,7 @@ function data(){return currentBank[mode];}
 function tfItem(q,si,qi=index){
  const raw=q.statements[si];
  if(typeof raw==='string')return {text:raw,answer:currentTopic==='growth'?Boolean(TF_KEY[qi][si]):false,explanation:''};
+ if(Array.isArray(raw))return {text:raw[0],answer:currentTopic==='growth'?Boolean(TF_KEY[qi][si]):Boolean(raw[1]),explanation:raw[2]||''};
  return {text:raw.text,answer:currentTopic==='growth'?Boolean(TF_KEY[qi][si]):Boolean(raw.answer),explanation:raw.explanation||''};
 }
 function sbaKey(q,qi){return currentTopic==='growth'?SBA_KEY[qi]:q.answer;}
