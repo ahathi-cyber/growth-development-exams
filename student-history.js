@@ -2,7 +2,7 @@
 (function(){
  'use strict';
  const ID_KEY='finalmbbs.studentId.v1';
- const HISTORY_KEY='finalmbbs.attempts.v1';
+ const HISTORY_KEY='finalmbbs.attempts.v1';\n const DRIVE_STATUS_ID='drive-sync-status';
  const $=id=>document.getElementById(id);
  const normalise=s=>String(s||'').trim().toLowerCase();
  const getId=()=>{try{return normalise(localStorage.getItem(ID_KEY));}catch(e){return '';}};
@@ -87,15 +87,34 @@
   if(getId()){if(signin)signin.classList.add('hidden');if(home)home.classList.remove('hidden');}
   else {if(home)home.classList.add('hidden');if(signin)signin.classList.remove('hidden');}
  }
+ async function uploadAttemptToDrive(attempt,id){
+  const status=$(DRIVE_STATUS_ID);
+  const endpoint=String(window.GOOGLE_DRIVE_SUBMISSION_ENDPOINT||'').trim();
+  if(!endpoint){
+   if(status){status.classList.add('hidden');status.textContent='';}
+   return {configured:false};
+  }
+  if(status){status.classList.remove('hidden');status.textContent='Sending this attempt to the central answer collection…';}
+  const payload={schemaVersion:1,submissionId:(window.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(36).slice(2)),submittedAt:new Date().toISOString(),studentId:id,site:'Final MBBS Practice Exams',...attempt};
+  try{
+   await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload),keepalive:true});
+   if(status)status.textContent='Submission sent to the Google Drive endpoint. Because of browser security restrictions, delivery must be confirmed by checking the Drive folder.';
+   return {configured:true,sent:true};
+  }catch(error){
+   if(status)status.textContent='Could not send this attempt to Google Drive. Your local history is still saved; export the results as CSV and retry later.';
+   return {configured:true,sent:false};
+  }
+ }
  window.saveQuizAttempt=function(attempt){
   const id=getId();
   if(!id){const status=$('student-status');if(status)status.textContent='Quiz completed, but history was not saved. Set your student ID on the home page first.';return false;}
   const all=getAll();
   if(!Array.isArray(all[id]))all[id]=[];
   all[id].push({...attempt,completedAt:attempt.completedAt||new Date().toISOString()});
-  if(saveAll(all)){render();return true;}
-  alert('Could not save history in this browser. Export your result as CSV instead.');
-  return false;
+  if(saveAll(all))render();
+  else alert('Could not save history in this browser. Export your result as CSV instead.');
+  uploadAttemptToDrive(attempt,id);
+  return saveAll(all);
  };
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
  else init();
