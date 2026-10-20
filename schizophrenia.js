@@ -198,20 +198,8 @@ tf: [
 ["Family psychoeducation may support understanding, communication and relapse prevention.",true,"Interventions should be tailored to family needs and preferences."],
 ["The patient should be excluded from discussions about their own care whenever family are present.",false,"Include the person as much as possible and respect confidentiality."]
 ]},
-{title:"Recovery and rehabilitation",category:"Recovery",statements:[
-["Recovery-oriented care values the person's goals and strengths.",true,"Care should support a meaningful life as defined by the person."],
-["Supported accommodation, employment and education may be useful components of rehabilitation.",true,"Social interventions can address barriers to participation."],
-["Persistent symptoms make all rehabilitation futile.",false,"People can benefit from rehabilitation despite ongoing symptoms."],
-["A relapse prevention plan can include preferred contacts and coping strategies.",true,"Personalised plans help coordinate early support."],
-["Physical, psychological and social needs should be considered together.",true,"Holistic care recognises interacting influences on wellbeing."]
-]},
-{title:"Legal and ethical practice",category:"Ethics",statements:[
-["Compulsory treatment decisions must follow relevant local law and safeguards.",true,"Legal criteria and rights vary by jurisdiction."],
-["A psychiatric diagnosis alone automatically justifies involuntary admission.",false,"Legal thresholds and individual circumstances must be assessed."],
-["The least restrictive safe option should be considered in crisis care.",true,"Respect rights while managing immediate risk."],
-["Documentation should explain the rationale for significant risk and treatment decisions.",true,"Clear records support continuity, accountability and review."],
-["People receiving mental healthcare retain rights to dignity and respectful treatment.",true,"Rights-based practice applies regardless of diagnosis."]
-]},
+
+
 {title:"Treatment resistance and review",category:"Long-term management",statements:[
 ["Before labelling schizophrenia treatment-resistant, clinicians should review diagnosis, dose, duration and adherence.",true,"Adequate treatment trials and alternative explanations must be considered."],
 ["Persistent symptoms always prove pharmacological treatment resistance.",false,"Check adherence, substances, diagnosis, psychosocial factors and adequate trials."],
@@ -255,8 +243,8 @@ sba: [
 {title:"Thought insertion",category:"Clinical features",stem:"A patient says, 'These thoughts are not mine; someone has put them into my mind.' This is best described as:",options:{A:"Thought insertion",B:"Thought blocking",C:"Flight of ideas",D:"An illusion",E:"Derealisation"},answer:"A",explanation:"Thought insertion is a passivity phenomenon involving the experience that thoughts have been inserted by an external agent."},
 {title:"Negative symptom vs depression",category:"Differential diagnosis",stem:"A patient has reduced activity and social withdrawal. What is important before attributing this solely to negative symptoms?",options:{A:"Assess depression, medication effects, substance use and social circumstances",B:"Assume schizophrenia without assessment",C:"Ignore the timeline",D:"Stop all medication immediately",E:"Assess only hallucinations"},answer:"A",explanation:"Avolition and withdrawal are not specific; evaluate depression, adverse effects, physical illness and context."},
 {title:"Long-term recovery",category:"Recovery",stem:"Which is the best recovery-oriented goal?",options:{A:"Only count hallucinations and ignore the person's priorities",B:"Agree goals that may include relationships, education, work, housing and symptom management",C:"Assume employment is impossible",D:"Exclude social support",E:"Focus only on diagnosis"},answer:"B",explanation:"Recovery-oriented care supports meaningful goals and function alongside symptom management."},
-{title:"Treatment resistance",category:"Treatment",stem:"Before concluding that symptoms persist despite adequate treatment, what should be reviewed?",options:{A:"Diagnosis, adequate dose and duration, adherence, substances and psychosocial factors",B:"Only the patient's age",C:"Only blood group",D:"Whether the tablet is branded",E:"Nothing; persistent symptoms prove resistance"},answer:"A",explanation:"Confirm adequate trials and consider adherence, diagnosis, interactions and other contributors before treatment-resistant designation."},
-{title:"Delirium red flag",category:"Clinical safety",stem:"Which feature most strongly suggests delirium rather than an uncomplicated chronic psychotic disorder?",options:{A:"Longstanding stable delusions",B:"Acute onset with fluctuating attention and awareness",C:"A family history of psychosis",D:"A gradual decline in social functioning over years",E:"A history of antipsychotic response"},answer:"B",explanation:"Acute fluctuating inattention and altered awareness are key delirium features and require urgent medical evaluation."},
+
+
 {title:"Shared decision-making",category:"Engagement",stem:"A patient wants to stop an antipsychotic because of weight gain. What is the best response?",options:{A:"Dismiss the concern",B:"Explore the impact, discuss options and risks, and agree a monitored plan with the treating team",C:"Tell them to stop abruptly",D:"Threaten them",E:"Avoid discussing adverse effects"},answer:"B",explanation:"Addressing adverse effects collaboratively can support adherence and reduce avoidable harm."},
 {title:"Command hallucinations",category:"Risk assessment",stem:"Which follow-up question is most relevant when a patient reports command hallucinations to harm another person?",options:{A:"What is your favourite colour?",B:"Do you feel likely to act on the command, and what helps you resist it?",C:"Do you like sports?",D:"What is your blood group?",E:"Can we ignore the voices?"},answer:"B",explanation:"Explore intent, perceived power of the voice, ability to resist, target access, protective factors and immediate safety."},
 {title:"Holistic care",category:"Management",stem:"Which plan best reflects comprehensive schizophrenia care?",options:{A:"Medication only with no follow-up",B:"Shared medication plan, psychological and social supports, physical health monitoring and relapse planning",C:"No physical health care",D:"Avoid involving the patient",E:"Use restrictive care for everyone"},answer:"B",explanation:"Comprehensive care combines evidence-based treatment, physical health, psychosocial support and collaborative planning."}
