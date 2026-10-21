@@ -67,30 +67,28 @@ jobs:
           node --check student-history.js
           node --check schizophrenia.js
           node --check neonatal-jaundice.js
-          node --check delusional-disorder.js
-          node --check delusional-disorder-extra.js
+          node --check bipolar-affective.js
           node - <<'NODE'
           global.window = {};
           require('./child-psychiatry.js');
           require('./child-psychiatry-essays.js');
-          require('./delusional-disorder.js');
-          require('./delusional-disorder-extra.js');
-          const psychiatry01 = global.window.DELUSIONAL_DISORDER_BANK;
+          require('./bipolar-affective.js');
+          const psychiatry01 = global.window.BIPOLAR_AFFECTIVE_BANK;
           if (!psychiatry01 || psychiatry01.tf.length !== 30 || psychiatry01.sba.length !== 30 || psychiatry01.essays.length !== 3) {
-            throw new Error('Psychiatry Test 01 must contain 30 T/F groups, 30 SBA questions and 3 essays.');
+            throw new Error('Bipolar Affective Disorder bank must contain exactly 30 T/F groups, 30 SBA questions and 3 essays.');
           }
           for (const [i, group] of psychiatry01.tf.entries()) {
-            if (!Array.isArray(group.statements) || group.statements.length !== 5) throw new Error('Psychiatry Test 01 T/F group ' + (i + 1) + ' must have five statements.');
+            if (!Array.isArray(group.statements) || group.statements.length !== 5) throw new Error('Bipolar T/F group ' + (i + 1) + ' must have five statements.');
             for (const [j, item] of group.statements.entries()) {
-              if (!Array.isArray(item) || item.length < 2 || typeof item[0] !== 'string' || typeof item[1] !== 'boolean') throw new Error('Invalid Psychiatry Test 01 T/F statement at group ' + (i + 1) + ', item ' + (j + 1));
+              if (!Array.isArray(item) || item.length < 2 || typeof item[0] !== 'string' || typeof item[1] !== 'boolean') throw new Error('Invalid bipolar T/F statement at group ' + (i + 1) + ', item ' + (j + 1));
             }
           }
           for (const [i, q] of psychiatry01.sba.entries()) {
-            if (!q.stem || !q.options || Object.keys(q.options).length !== 5 || !q.options[q.answer]) throw new Error('Psychiatry Test 01 SBA question ' + (i + 1) + ' must have a stem, five options and a valid answer key.');
+            if (!q.stem || !q.options || Object.keys(q.options).length !== 5 || !q.options[q.answer]) throw new Error('Bipolar SBA question ' + (i + 1) + ' must have five options and a valid answer key.');
           }
           for (const [i, essay] of psychiatry01.essays.entries()) {
             const total = essay.rubric.reduce((sum, criterion) => sum + criterion.points, 0);
-            if (essay.max !== 20 || total !== 20) throw new Error('Psychiatry Test 01 essay ' + (i + 1) + ' rubric must total 20 marks; got ' + total);
+            if (essay.max !== 20 || total !== 20) throw new Error('Bipolar essay ' + (i + 1) + ' rubric must total 20 marks; got ' + total);
           }
           const bank = global.window.CHILD_PSYCHIATRY_BANK;
           if (!bank || bank.tf.length !== 30 || bank.sba.length !== 32 || !Array.isArray(bank.essays) || bank.essays.length !== 3) {
