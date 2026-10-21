@@ -250,7 +250,7 @@ function exportCSV(){
  });
  rows.push([]);rows.push(['TOTAL',topicLabel()+' '+mode.toUpperCase(),'', '', '',results.score,results.max]);
  const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');
- const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(currentTopic==='jaundice'?'neonatal-jaundice':currentTopic==='schizophrenia'?'schizophrenia':currentTopic==='child-psychiatry'?'child-psychiatry':currentTopic==='bipolar-affective'?'bipolar-affective':'growth-development')+'-'+mode+'-results.csv';a.click();URL.revokeObjectURL(url);
+ const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(window.PSYCHIATRY_MODULE_BANKS?.[currentTopic]?currentTopic:currentTopic==='jaundice'?'neonatal-jaundice':currentTopic==='schizophrenia'?'schizophrenia':currentTopic==='child-psychiatry'?'child-psychiatry':currentTopic==='bipolar-affective'?'bipolar-affective':'growth-development')+'-'+mode+'-results.csv';a.click();URL.revokeObjectURL(url);
 }
 document.querySelectorAll('[data-topic]').forEach(btn=>btn.addEventListener('click',()=>selectTopic(btn.dataset.topic)));
 document.querySelectorAll('[data-mode]').forEach(btn=>btn.addEventListener('click',()=>start(btn.dataset.mode)));
