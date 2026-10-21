@@ -7,6 +7,7 @@
   <meta name="description" content="Interactive Final MBBS practice exams in Paediatrics and Psychiatry with True/False, Single Best Answer and rubric-supported essay marking.">
   <title>Final MBBS Practice Exams</title>
   <link rel="stylesheet" href="style.css">
+  <style>.revision-toggle{display:flex;align-items:center;gap:.55rem;padding:1rem;margin:1rem 0;border:1px solid #c9d5e3;border-radius:12px;background:#f4f7fb;color:#18324f}.revision-key{display:block;margin:.45rem 0;padding:.65rem .8rem;border-left:3px solid #3b6b9a;background:#edf4fb;color:#18324f;font-size:.92rem}.revision-correct{color:#17643a;margin-left:.4rem}</style>
 </head>
 <body>
   <header class="top">
@@ -57,6 +58,12 @@
             <span class="topic-kicker">TOPIC 04 · NEW PSYCHIATRY</span>
             <span class="topic-title">Child Psychiatry</span>
             <span class="topic-desc">Developmental assessment, autism, ADHD, emotional and behavioural disorders, safeguarding and management.</span>
+            <span class="topic-cta">Choose this topic <b aria-hidden="true">→</b></span>
+          </button>
+          <button class="topic-card" type="button" data-topic="delusional-disorder">
+            <span class="topic-kicker">TOPIC 05 · NEW PSYCHIATRY</span>
+            <span class="topic-title">Delusional Disorder and Differential Diagnosis</span>
+            <span class="topic-desc">Psychopathology, diagnosis, differential diagnosis, assessment, risk and management.</span>
             <span class="topic-cta">Choose this topic <b aria-hidden="true">→</b></span>
           </button>
           <button class="topic-card" type="button" data-topic="schizophrenia">
@@ -117,6 +124,7 @@
           <span class="mode-cta"><span>Start 3-essay paper</span><b aria-hidden="true">→</b></span>
         </button>
       </div>
+      <label class="revision-toggle"><input id="revision-mode" type="checkbox"> <strong>Revision mode:</strong> show answers, explanations and marking schemes while answering</label>
       <div class="note"><span aria-hidden="true">i</span><p><b>About essay marking</b><br>The essay checker gives a provisional score by detecting key concepts and synonyms. It cannot fully understand every paraphrase, so review the suggested points and use the rubric as a formative self-assessment—not as an official examiner's mark.</p></div>
     </section>
 
@@ -183,6 +191,8 @@
   <script src="schizophrenia.js?v=20261020-1"></script>
   <script src="child-psychiatry.js?v=20261020-3"></script>
   <script src="child-psychiatry-essays.js?v=20261020-1"></script>
+  <script src="delusional-disorder.js?v=20261021-1"></script>
+  <script src="delusional-disorder-extra.js?v=20261021-1"></script>
   <script src="google-drive-config.js?v=20261020-1"></script>\n  <script src="student-history.js?v=20261020-drive-sync-1"></script>
   <script src="app.js?v=20261020-drive-sync-1"></script>
 </body>
