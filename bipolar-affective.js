@@ -935,393 +935,423 @@ window.BIPOLAR_AFFECTIVE_BANK = {
   "sba": [
     {
       "category": "Diagnosis",
-      "title": "A 24-year-old has a 9-day period of elevated and irritable mood, markedly reduced need for sleep, pressured speech, grandiosity and severe occupational disruption. What is the most appropriate episode diagnosis?",
-      "stem": "Manic episode",
+      "title": "Bipolar SBA 01",
+      "stem": "A 24-year-old has a 9-day period of elevated and irritable mood, markedly reduced need for sleep, pressured speech, grandiosity and severe occupational disruption. What is the most appropriate episode diagnosis?",
       "options": {
-        "A": "Hypomanic episode",
-        "B": "Major depressive episode",
-        "C": "Cyclothymic symptoms",
-        "D": "Panic disorder",
-        "E": "A"
+        "A": "Manic episode",
+        "B": "Hypomanic episode",
+        "C": "Major depressive episode",
+        "D": "Cyclothymic symptoms",
+        "E": "Panic disorder"
       },
-      "answer": "The duration, syndrome and marked impairment support mania."
+      "answer": "A",
+      "explanation": "The duration, syndrome and marked impairment support mania."
     },
     {
       "category": "Bipolar I",
-      "title": "Which history is sufficient to establish Bipolar I disorder, assuming other causes are excluded?",
-      "stem": "One manic episode",
+      "title": "Bipolar SBA 02",
+      "stem": "Which history is sufficient to establish Bipolar I disorder, assuming other causes are excluded?",
       "options": {
-        "A": "One hypomanic episode only",
-        "B": "One major depressive episode only",
-        "C": "Chronic anxiety only",
-        "D": "A family history alone",
-        "E": "A"
+        "A": "One manic episode",
+        "B": "One hypomanic episode only",
+        "C": "One major depressive episode only",
+        "D": "Chronic anxiety only",
+        "E": "A family history alone"
       },
-      "answer": "A manic episode is the defining requirement for Bipolar I disorder."
+      "answer": "A",
+      "explanation": "A manic episode is the defining requirement for Bipolar I disorder."
     },
     {
       "category": "Bipolar II",
-      "title": "Which pattern best supports Bipolar II disorder?",
-      "stem": "Mania with psychosis",
+      "title": "Bipolar SBA 03",
+      "stem": "Which pattern best supports Bipolar II disorder?",
       "options": {
-        "A": "Hypomanic and major depressive episodes with no history of mania",
-        "B": "Depression alone",
-        "C": "Cyclothymic symptoms for two weeks",
-        "D": "Psychosis without mood symptoms",
-        "E": "B"
+        "A": "Mania with psychosis",
+        "B": "Hypomanic and major depressive episodes with no history of mania",
+        "C": "Depression alone",
+        "D": "Cyclothymic symptoms for two weeks",
+        "E": "Psychosis without mood symptoms"
       },
-      "answer": "Bipolar II requires hypomania and major depression, without past mania."
+      "answer": "B",
+      "explanation": "Bipolar II requires hypomania and major depression, without past mania."
     },
     {
       "category": "Hypomania",
-      "title": "Which feature most strongly argues against hypomania and in favour of mania?",
-      "stem": "Observable increased energy",
+      "title": "Bipolar SBA 04",
+      "stem": "Which feature most strongly argues against hypomania and in favour of mania?",
       "options": {
-        "A": "Reduced need for sleep",
-        "B": "Marked functional impairment requiring hospitalisation",
-        "C": "Increased talkativeness",
-        "D": "A change from baseline",
-        "E": "C"
+        "A": "Observable increased energy",
+        "B": "Reduced need for sleep",
+        "C": "Marked functional impairment requiring hospitalisation",
+        "D": "Increased talkativeness",
+        "E": "A change from baseline"
       },
-      "answer": "Marked impairment or hospitalisation indicates mania; psychosis also rules out hypomania."
+      "answer": "C",
+      "explanation": "Marked impairment or hospitalisation indicates mania; psychosis also rules out hypomania."
     },
     {
       "category": "Collateral history",
-      "title": "A patient presenting with depression recalls no elevated episodes, but a partner describes a past week of little sleep, grandiosity and risky spending. What is the best next step?",
-      "stem": "Ignore collateral information",
+      "title": "Bipolar SBA 05",
+      "stem": "A patient presenting with depression recalls no elevated episodes, but a partner describes a past week of little sleep, grandiosity and risky spending. What is the best next step?",
       "options": {
-        "A": "Explore the episode in detail and assess lifetime mood course",
-        "B": "Diagnose unipolar depression immediately",
-        "C": "Prescribe an antidepressant without further history",
-        "D": "Assume the partner is correct without assessment",
-        "E": "B"
+        "A": "Ignore collateral information",
+        "B": "Explore the episode in detail and assess lifetime mood course",
+        "C": "Diagnose unipolar depression immediately",
+        "D": "Prescribe an antidepressant without further history",
+        "E": "Assume the partner is correct without assessment"
       },
-      "answer": "Collateral history can help clarify past episodes, with consent and appropriate context."
+      "answer": "B",
+      "explanation": "Collateral history can help clarify past episodes, with consent and appropriate context."
     },
     {
       "category": "Secondary mania",
-      "title": "A 68-year-old develops a first manic-like episode shortly after starting corticosteroids. What is the best approach?",
-      "stem": "Assume primary bipolar disorder without review",
+      "title": "Bipolar SBA 06",
+      "stem": "A 68-year-old develops a first manic-like episode shortly after starting corticosteroids. What is the best approach?",
       "options": {
-        "A": "Assess medication effects and medical/neurological causes alongside psychiatric assessment",
-        "B": "Ignore the timing",
-        "C": "Diagnose schizophrenia",
-        "D": "Discharge without follow-up",
-        "E": "B"
+        "A": "Assume primary bipolar disorder without review",
+        "B": "Assess medication effects and medical/neurological causes alongside psychiatric assessment",
+        "C": "Ignore the timing",
+        "D": "Diagnose schizophrenia",
+        "E": "Discharge without follow-up"
       },
-      "answer": "Review temporal relationships and possible secondary causes."
+      "answer": "B",
+      "explanation": "Review temporal relationships and possible secondary causes."
     },
     {
       "category": "Risk assessment",
-      "title": "A patient in mania has spent their savings, is driving recklessly and has slept two hours nightly. Which assessment is most appropriate?",
-      "stem": "Suicide questions only",
+      "title": "Bipolar SBA 07",
+      "stem": "A patient in mania has spent their savings, is driving recklessly and has slept two hours nightly. Which assessment is most appropriate?",
       "options": {
-        "A": "Comprehensive assessment of self-harm, accidental harm, vulnerability, financial and behavioural risks",
-        "B": "Only ask about appetite",
-        "C": "Assess risk after symptoms resolve",
-        "D": "No risk assessment if mood is cheerful",
-        "E": "B"
+        "A": "Suicide questions only",
+        "B": "Comprehensive assessment of self-harm, accidental harm, vulnerability, financial and behavioural risks",
+        "C": "Only ask about appetite",
+        "D": "Assess risk after symptoms resolve",
+        "E": "No risk assessment if mood is cheerful"
       },
-      "answer": "Risk in mania includes impulsivity, vulnerability and harm beyond suicide."
+      "answer": "B",
+      "explanation": "Risk in mania includes impulsivity, vulnerability and harm beyond suicide."
     },
     {
       "category": "Psychosis",
-      "title": "A patient has elevated mood, grandiose delusions and severe impairment. How should the elevated episode be classified?",
-      "stem": "Hypomania",
+      "title": "Bipolar SBA 08",
+      "stem": "A patient has elevated mood, grandiose delusions and severe impairment. How should the elevated episode be classified?",
       "options": {
-        "A": "Mania with psychotic features",
-        "B": "Cyclothymia",
-        "C": "Uncomplicated euthymia",
-        "D": "Panic attack",
-        "E": "B"
+        "A": "Hypomania",
+        "B": "Mania with psychotic features",
+        "C": "Cyclothymia",
+        "D": "Uncomplicated euthymia",
+        "E": "Panic attack"
       },
-      "answer": "Psychosis during an elevated episode indicates mania."
+      "answer": "B",
+      "explanation": "Psychosis during an elevated episode indicates mania."
     },
     {
       "category": "Differential: thyroid",
-      "title": "Which medical condition can present with symptoms resembling mania?",
-      "stem": "Hypothyroidism never affects mood",
+      "title": "Bipolar SBA 09",
+      "stem": "Which medical condition can present with symptoms resembling mania?",
       "options": {
-        "A": "Hyperthyroidism",
-        "B": "Appendicitis only",
-        "C": "Osteoarthritis",
-        "D": "Myopia",
-        "E": "B"
+        "A": "Hypothyroidism never affects mood",
+        "B": "Hyperthyroidism",
+        "C": "Appendicitis only",
+        "D": "Osteoarthritis",
+        "E": "Myopia"
       },
-      "answer": "Hyperthyroidism can cause activation, sleep disturbance and mood symptoms."
+      "answer": "B",
+      "explanation": "Hyperthyroidism can cause activation, sleep disturbance and mood symptoms."
     },
     {
       "category": "Substances",
-      "title": "Which is an appropriate part of assessing a possible first manic episode?",
-      "stem": "Avoid asking about substances",
+      "title": "Bipolar SBA 10",
+      "stem": "Which is an appropriate part of assessing a possible first manic episode?",
       "options": {
-        "A": "Review prescribed medicines, recreational substances and recent changes",
-        "B": "Assume toxicology is always unnecessary",
-        "C": "Only ask about caffeine after diagnosis",
-        "D": "Rule out all medical causes by interview alone",
-        "E": "B"
+        "A": "Avoid asking about substances",
+        "B": "Review prescribed medicines, recreational substances and recent changes",
+        "C": "Assume toxicology is always unnecessary",
+        "D": "Only ask about caffeine after diagnosis",
+        "E": "Rule out all medical causes by interview alone"
       },
-      "answer": "Substance and medication history helps assess secondary causes."
+      "answer": "B",
+      "explanation": "Substance and medication history helps assess secondary causes."
     },
     {
       "category": "Mixed features",
-      "title": "A patient with depression has marked agitation, racing thoughts and reduced need for sleep. What is the most appropriate response?",
-      "stem": "Assume ordinary unipolar depression without further assessment",
+      "title": "Bipolar SBA 11",
+      "stem": "A patient with depression has marked agitation, racing thoughts and reduced need for sleep. What is the most appropriate response?",
       "options": {
-        "A": "Assess for mixed features, bipolarity and immediate risk",
-        "B": "Ignore the sleep change",
-        "C": "Diagnose personality disorder automatically",
-        "D": "Start no assessment until symptoms stop",
-        "E": "B"
+        "A": "Assume ordinary unipolar depression without further assessment",
+        "B": "Assess for mixed features, bipolarity and immediate risk",
+        "C": "Ignore the sleep change",
+        "D": "Diagnose personality disorder automatically",
+        "E": "Start no assessment until symptoms stop"
       },
-      "answer": "Mixed symptoms require careful diagnostic and safety assessment."
+      "answer": "B",
+      "explanation": "Mixed symptoms require careful diagnostic and safety assessment."
     },
     {
       "category": "Rapid cycling",
-      "title": "Rapid cycling in bipolar disorder conventionally refers to:",
-      "stem": "Four mood episodes in 12 months",
+      "title": "Bipolar SBA 12",
+      "stem": "Rapid cycling in bipolar disorder conventionally refers to:",
       "options": {
-        "A": "Four mood changes in a single afternoon",
-        "B": "One manic episode in a lifetime",
-        "C": "Daily normal mood variation",
-        "D": "Four panic attacks in a year",
-        "E": "A"
+        "A": "Four mood episodes in 12 months",
+        "B": "Four mood changes in a single afternoon",
+        "C": "One manic episode in a lifetime",
+        "D": "Daily normal mood variation",
+        "E": "Four panic attacks in a year"
       },
-      "answer": "Rapid cycling refers to four or more mood episodes in a year."
+      "answer": "A",
+      "explanation": "Rapid cycling refers to four or more mood episodes in a year."
     },
     {
       "category": "Suicide risk",
-      "title": "Which statement about suicide risk in bipolar disorder is most accurate?",
-      "stem": "It occurs only in mania",
+      "title": "Bipolar SBA 13",
+      "stem": "Which statement about suicide risk in bipolar disorder is most accurate?",
       "options": {
-        "A": "It should be assessed, especially during depressive or mixed states, and reassessed over time",
-        "B": "It can be excluded by asking once",
-        "C": "Protective factors are irrelevant",
-        "D": "Risk assessment is unnecessary with family support",
-        "E": "B"
+        "A": "It occurs only in mania",
+        "B": "It should be assessed, especially during depressive or mixed states, and reassessed over time",
+        "C": "It can be excluded by asking once",
+        "D": "Protective factors are irrelevant",
+        "E": "Risk assessment is unnecessary with family support"
       },
-      "answer": "Risk is dynamic and should be assessed comprehensively."
+      "answer": "B",
+      "explanation": "Risk is dynamic and should be assessed comprehensively."
     },
     {
       "category": "Acute management",
-      "title": "A severely manic patient is agitated, dehydrated and unable to care for themselves. What is the priority?",
-      "stem": "Routine review in six months",
+      "title": "Bipolar SBA 14",
+      "stem": "A severely manic patient is agitated, dehydrated and unable to care for themselves. What is the priority?",
       "options": {
-        "A": "Urgent assessment, safety, physical health support and specialist treatment",
-        "B": "Encourage them to drive home",
-        "C": "Focus only on long-term psychotherapy",
-        "D": "Avoid assessing hydration",
-        "E": "B"
+        "A": "Routine review in six months",
+        "B": "Urgent assessment, safety, physical health support and specialist treatment",
+        "C": "Encourage them to drive home",
+        "D": "Focus only on long-term psychotherapy",
+        "E": "Avoid assessing hydration"
       },
-      "answer": "Acute safety and physical health take priority."
+      "answer": "B",
+      "explanation": "Acute safety and physical health take priority."
     },
     {
       "category": "Lithium monitoring",
-      "title": "Which is important when initiating and maintaining lithium?",
-      "stem": "No blood tests are required",
+      "title": "Bipolar SBA 15",
+      "stem": "Which is important when initiating and maintaining lithium?",
       "options": {
-        "A": "Monitor lithium levels and relevant renal and thyroid function according to guidance",
-        "B": "Double the dose after any missed dose",
-        "C": "Ignore dehydration",
-        "D": "Stop monitoring once mood improves",
-        "E": "B"
+        "A": "No blood tests are required",
+        "B": "Monitor lithium levels and relevant renal and thyroid function according to guidance",
+        "C": "Double the dose after any missed dose",
+        "D": "Ignore dehydration",
+        "E": "Stop monitoring once mood improves"
       },
-      "answer": "Lithium requires monitoring due to its narrow therapeutic index and adverse effects."
+      "answer": "B",
+      "explanation": "Lithium requires monitoring due to its narrow therapeutic index and adverse effects."
     },
     {
       "category": "Lithium toxicity",
-      "title": "A patient taking lithium develops vomiting, coarse tremor, unsteadiness and confusion after dehydration. What should they do?",
-      "stem": "Take an extra dose",
+      "title": "Bipolar SBA 16",
+      "stem": "A patient taking lithium develops vomiting, coarse tremor, unsteadiness and confusion after dehydration. What should they do?",
       "options": {
-        "A": "Seek urgent medical assessment for possible lithium toxicity",
-        "B": "Wait a month",
-        "C": "Stop all fluids",
-        "D": "Ignore the symptoms",
-        "E": "B"
+        "A": "Take an extra dose",
+        "B": "Seek urgent medical assessment for possible lithium toxicity",
+        "C": "Wait a month",
+        "D": "Stop all fluids",
+        "E": "Ignore the symptoms"
       },
-      "answer": "These may indicate toxicity and need urgent assessment."
+      "answer": "B",
+      "explanation": "These may indicate toxicity and need urgent assessment."
     },
     {
       "category": "Valproate",
-      "title": "When considering valproate, which issue is especially important?",
-      "stem": "It has no adverse effects",
+      "title": "Bipolar SBA 17",
+      "stem": "When considering valproate, which issue is especially important?",
       "options": {
-        "A": "Reproductive risks and current local prescribing restrictions",
-        "B": "It requires no counselling",
-        "C": "It is always first choice for every patient",
-        "D": "It is safe for all pregnancies",
-        "E": "B"
+        "A": "It has no adverse effects",
+        "B": "Reproductive risks and current local prescribing restrictions",
+        "C": "It requires no counselling",
+        "D": "It is always first choice for every patient",
+        "E": "It is safe for all pregnancies"
       },
-      "answer": "Valproate has significant fetal and neurodevelopmental risks; follow local safeguards."
+      "answer": "B",
+      "explanation": "Valproate has significant fetal and neurodevelopmental risks; follow local safeguards."
     },
     {
       "category": "Lamotrigine",
-      "title": "Which statement about lamotrigine is correct?",
-      "stem": "It is a rapid standard treatment for acute severe mania",
+      "title": "Bipolar SBA 18",
+      "stem": "Which statement about lamotrigine is correct?",
       "options": {
-        "A": "Slow titration is important because of serious rash risk",
-        "B": "It never causes rash",
-        "C": "It should always be restarted at full dose after interruption",
-        "D": "It requires no medication counselling",
-        "E": "B"
+        "A": "It is a rapid standard treatment for acute severe mania",
+        "B": "Slow titration is important because of serious rash risk",
+        "C": "It never causes rash",
+        "D": "It should always be restarted at full dose after interruption",
+        "E": "It requires no medication counselling"
       },
-      "answer": "Slow titration reduces risk; seek advice about rash or interruption."
+      "answer": "B",
+      "explanation": "Slow titration reduces risk; seek advice about rash or interruption."
     },
     {
       "category": "Antidepressants",
-      "title": "A patient with bipolar disorder develops reduced sleep, increased energy and impulsive spending after starting an antidepressant. What is the best next step?",
-      "stem": "Continue unchanged without review",
+      "title": "Bipolar SBA 19",
+      "stem": "A patient with bipolar disorder develops reduced sleep, increased energy and impulsive spending after starting an antidepressant. What is the best next step?",
       "options": {
-        "A": "Promptly reassess for activation or mood switch and review treatment",
-        "B": "Ignore the change",
-        "C": "Diagnose ADHD immediately",
-        "D": "Increase the antidepressant without assessment",
-        "E": "B"
+        "A": "Continue unchanged without review",
+        "B": "Promptly reassess for activation or mood switch and review treatment",
+        "C": "Ignore the change",
+        "D": "Diagnose ADHD immediately",
+        "E": "Increase the antidepressant without assessment"
       },
-      "answer": "New activation may represent switching and warrants clinical reassessment."
+      "answer": "B",
+      "explanation": "New activation may represent switching and warrants clinical reassessment."
     },
     {
       "category": "Maintenance",
-      "title": "What is a useful component of a bipolar relapse-prevention plan?",
-      "stem": "Avoid identifying early warning signs",
+      "title": "Bipolar SBA 20",
+      "stem": "What is a useful component of a bipolar relapse-prevention plan?",
       "options": {
-        "A": "Record personal early symptoms, triggers and whom to contact",
-        "B": "Stop treatment abruptly when well",
-        "C": "Exclude family or supports in all cases",
-        "D": "Only monitor physical symptoms",
-        "E": "B"
+        "A": "Avoid identifying early warning signs",
+        "B": "Record personal early symptoms, triggers and whom to contact",
+        "C": "Stop treatment abruptly when well",
+        "D": "Exclude family or supports in all cases",
+        "E": "Only monitor physical symptoms"
       },
-      "answer": "Individualised early warning signs and contact plans support timely intervention."
+      "answer": "B",
+      "explanation": "Individualised early warning signs and contact plans support timely intervention."
     },
     {
       "category": "Pregnancy",
-      "title": "A person with bipolar disorder is planning pregnancy. What is the best approach?",
-      "stem": "Stop all medication immediately without advice",
+      "title": "Bipolar SBA 21",
+      "stem": "A person with bipolar disorder is planning pregnancy. What is the best approach?",
       "options": {
-        "A": "Plan a specialist review of relapse risk, medication safety and postpartum support",
-        "B": "Assume all mood stabilisers have equal safety",
-        "C": "Discuss only after delivery",
-        "D": "Ignore sleep planning",
-        "E": "B"
+        "A": "Stop all medication immediately without advice",
+        "B": "Plan a specialist review of relapse risk, medication safety and postpartum support",
+        "C": "Assume all mood stabilisers have equal safety",
+        "D": "Discuss only after delivery",
+        "E": "Ignore sleep planning"
       },
-      "answer": "Preconception planning should balance maternal relapse risk and medication risks."
+      "answer": "B",
+      "explanation": "Preconception planning should balance maternal relapse risk and medication risks."
     },
     {
       "category": "Postpartum",
-      "title": "Why is postpartum planning important in bipolar disorder?",
-      "stem": "There is no relapse risk after childbirth",
+      "title": "Bipolar SBA 22",
+      "stem": "Why is postpartum planning important in bipolar disorder?",
       "options": {
-        "A": "Relapse risk can be elevated, so treatment, sleep and support plans matter",
-        "B": "Only physical health needs review",
-        "C": "Medication decisions never change",
-        "D": "Family support is always contraindicated",
-        "E": "B"
+        "A": "There is no relapse risk after childbirth",
+        "B": "Relapse risk can be elevated, so treatment, sleep and support plans matter",
+        "C": "Only physical health needs review",
+        "D": "Medication decisions never change",
+        "E": "Family support is always contraindicated"
       },
-      "answer": "A proactive postpartum plan can help prevent and respond to relapse."
+      "answer": "B",
+      "explanation": "A proactive postpartum plan can help prevent and respond to relapse."
     },
     {
       "category": "Capacity",
-      "title": "Which statement about capacity in a manic episode is correct?",
-      "stem": "Every patient automatically lacks capacity",
+      "title": "Bipolar SBA 23",
+      "stem": "Which statement about capacity in a manic episode is correct?",
       "options": {
-        "A": "Capacity is decision-specific and should be assessed when relevant",
-        "B": "Diagnosis alone proves incapacity",
-        "C": "Capacity cannot fluctuate",
-        "D": "Capacity assessment is never documented",
-        "E": "B"
+        "A": "Every patient automatically lacks capacity",
+        "B": "Capacity is decision-specific and should be assessed when relevant",
+        "C": "Diagnosis alone proves incapacity",
+        "D": "Capacity cannot fluctuate",
+        "E": "Capacity assessment is never documented"
       },
-      "answer": "Capacity is not determined solely by diagnosis."
+      "answer": "B",
+      "explanation": "Capacity is not determined solely by diagnosis."
     },
     {
       "category": "Psychosocial treatment",
-      "title": "Which intervention can support long-term bipolar management alongside appropriate medical treatment?",
-      "stem": "Psychoeducation and identifying early warning signs",
+      "title": "Bipolar SBA 24",
+      "stem": "Which intervention can support long-term bipolar management alongside appropriate medical treatment?",
       "options": {
-        "A": "Replacing all treatment with lifestyle advice in severe mania",
-        "B": "Avoiding discussion of sleep",
-        "C": "Blaming the patient for relapse",
-        "D": "Ignoring family context",
-        "E": "A"
+        "A": "Psychoeducation and identifying early warning signs",
+        "B": "Replacing all treatment with lifestyle advice in severe mania",
+        "C": "Avoiding discussion of sleep",
+        "D": "Blaming the patient for relapse",
+        "E": "Ignoring family context"
       },
-      "answer": "Psychoeducation, routine and relapse planning can complement treatment."
+      "answer": "A",
+      "explanation": "Psychoeducation, routine and relapse planning can complement treatment."
     },
     {
       "category": "Comorbidity",
-      "title": "A patient with bipolar disorder also uses stimulants heavily. Why is this clinically important?",
-      "stem": "It has no effect on mood",
+      "title": "Bipolar SBA 25",
+      "stem": "A patient with bipolar disorder also uses stimulants heavily. Why is this clinically important?",
       "options": {
-        "A": "It may mimic or worsen activation and complicate diagnosis and treatment",
-        "B": "It excludes bipolar disorder automatically",
-        "C": "It means no risk assessment is needed",
-        "D": "It makes collateral history invalid",
-        "E": "B"
+        "A": "It has no effect on mood",
+        "B": "It may mimic or worsen activation and complicate diagnosis and treatment",
+        "C": "It excludes bipolar disorder automatically",
+        "D": "It means no risk assessment is needed",
+        "E": "It makes collateral history invalid"
       },
-      "answer": "Substance use affects symptoms, risk and management."
+      "answer": "B",
+      "explanation": "Substance use affects symptoms, risk and management."
     },
     {
       "category": "ADHD differential",
-      "title": "Which feature can help distinguish episodic mania from longstanding ADHD symptoms?",
-      "stem": "ADHD symptoms are always episodic",
+      "title": "Bipolar SBA 26",
+      "stem": "Which feature can help distinguish episodic mania from longstanding ADHD symptoms?",
       "options": {
-        "A": "A distinct change from baseline with mood and sleep changes",
-        "B": "One symptom of distractibility alone",
-        "C": "Family history alone",
-        "D": "No need for developmental history",
-        "E": "B"
+        "A": "ADHD symptoms are always episodic",
+        "B": "A distinct change from baseline with mood and sleep changes",
+        "C": "One symptom of distractibility alone",
+        "D": "Family history alone",
+        "E": "No need for developmental history"
       },
-      "answer": "Course, episodicity, mood and sleep are useful differentiators."
+      "answer": "B",
+      "explanation": "Course, episodicity, mood and sleep are useful differentiators."
     },
     {
       "category": "Family involvement",
-      "title": "When involving family in bipolar care, the clinician should generally:",
-      "stem": "Share all information without considering consent",
+      "title": "Bipolar SBA 27",
+      "stem": "When involving family in bipolar care, the clinician should generally:",
       "options": {
-        "A": "Discuss involvement with the patient and respect confidentiality and safety duties",
-        "B": "Never consider collateral history",
-        "C": "Ask family to determine capacity",
-        "D": "Avoid psychoeducation",
-        "E": "B"
+        "A": "Share all information without considering consent",
+        "B": "Discuss involvement with the patient and respect confidentiality and safety duties",
+        "C": "Never consider collateral history",
+        "D": "Ask family to determine capacity",
+        "E": "Avoid psychoeducation"
       },
-      "answer": "Collaborative involvement should respect consent and applicable duties."
+      "answer": "B",
+      "explanation": "Collaborative involvement should respect consent and applicable duties."
     },
     {
       "category": "Physical health",
-      "title": "Why monitor physical health during long-term bipolar treatment?",
-      "stem": "Psychiatric illness protects against physical disease",
+      "title": "Bipolar SBA 28",
+      "stem": "Why monitor physical health during long-term bipolar treatment?",
       "options": {
-        "A": "Comorbidity and medication-related metabolic or other risks need attention",
-        "B": "Only mood symptoms matter",
-        "C": "Monitoring should stop after remission",
-        "D": "All medicines have identical effects",
-        "E": "B"
+        "A": "Psychiatric illness protects against physical disease",
+        "B": "Comorbidity and medication-related metabolic or other risks need attention",
+        "C": "Only mood symptoms matter",
+        "D": "Monitoring should stop after remission",
+        "E": "All medicines have identical effects"
       },
-      "answer": "Integrated physical and mental health care is important."
+      "answer": "B",
+      "explanation": "Integrated physical and mental health care is important."
     },
     {
       "category": "Early warning signs",
-      "title": "Which change may be an early warning sign of mania for an individual patient?",
-      "stem": "Reduced need for sleep and escalating activity",
+      "title": "Bipolar SBA 29",
+      "stem": "Which change may be an early warning sign of mania for an individual patient?",
       "options": {
-        "A": "A stable sleep pattern",
-        "B": "No change in behaviour",
-        "C": "A healed minor wound",
-        "D": "Routine appetite only",
-        "E": "A"
+        "A": "Reduced need for sleep and escalating activity",
+        "B": "A stable sleep pattern",
+        "C": "No change in behaviour",
+        "D": "A healed minor wound",
+        "E": "Routine appetite only"
       },
-      "answer": "Early warning signs vary but may include sleep, energy, speech and behaviour changes."
+      "answer": "A",
+      "explanation": "Early warning signs vary but may include sleep, energy, speech and behaviour changes."
     },
     {
       "category": "Clinical synthesis",
-      "title": "A patient has past mania and now presents with a depressive episode. Which diagnosis remains possible?",
-      "stem": "Bipolar I disorder",
+      "title": "Bipolar SBA 30",
+      "stem": "A patient has past mania and now presents with a depressive episode. Which diagnosis remains possible?",
       "options": {
-        "A": "Only unipolar depression",
-        "B": "Hypomania only",
-        "C": "Cyclothymia is mandatory",
-        "D": "No mood disorder is possible",
-        "E": "A"
+        "A": "Bipolar I disorder",
+        "B": "Only unipolar depression",
+        "C": "Hypomania only",
+        "D": "Cyclothymia is mandatory",
+        "E": "No mood disorder is possible"
       },
-      "answer": "A past manic episode remains relevant even when the current episode is depressive."
+      "answer": "A",
+      "explanation": "A past manic episode remains relevant even when the current episode is depressive."
     }
   ],
   "essays": [
