@@ -3,6 +3,7 @@
 A responsive educational revision site with topic selection, True/False, Single Best Answer (SBA), and formative essay self-marking.
 
 ## Topics
+- **Ordered Psychiatry study modules (16):** Foundations/MSE; Mood Disorders and Suicide Risk; Schizophrenia and Psychotic Disorders; Anxiety/OCD; Stress, Somatic and Dissociative Disorders; Alcohol and Substance Use; Personality and Impulse Control; Child and Adolescent Psychiatry; Psychiatry of Older Adults; Intellectual Disability and Learning Disorders; Eating and Sleep Disorders; Human Sexuality; Psychopharmacology and Psychological Treatments; Psychiatric Emergencies; Forensic Psychiatry/Ethics/Law; and Liaison Psychiatry/Miscellaneous. Each module contains a five-statement T/F group, 3 keyed SBA questions, and one 20-mark essay with model answer and rubric. The existing dedicated Child Psychiatry, Schizophrenia and Bipolar Affective Disorder papers remain available as focused practice tests.
 - **Growth & Development:** existing 30 True/False groups and 30 SBA questions.
 - **Neonatal Jaundice:** 30 True/False groups (5 statements per group), 30 SBA questions, and 3 structured essay questions (20 marks each).
 - **Bipolar Affective Disorder (Psychiatry Test 01):** exactly 30 T/F groups (5 statements per group), 30 SBA questions, and 3 structured essays (20 marks each), with answer explanations and point-by-point essay marking rubrics. Revision mode can reveal marking schemes while answering; exam mode keeps them for submission review.
