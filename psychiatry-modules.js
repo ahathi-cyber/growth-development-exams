@@ -272,7 +272,7 @@ for(const [id,c] of Object.entries(configs)){
  const statements=[];
  facts.forEach((f,i)=>{statements.push([f[0],true,f[2]]);statements.push([f[1],false,f[2]+' The statement is false.']);});
  while(statements.length<30){const f=facts[statements.length%facts.length];statements.push([f[0],true,f[2]]);}
- const groups=[]; for(let i=0;i<30;i+=5) groups.push({title:'Core concepts '+(i/5+1),category:c.label,statements:statements.slice(i,i+5)}); b.tf=groups;
+ const groups=[]; for(let g=0;g<30;g++){ const groupStatements=[]; for(let j=0;j<5;j++){ const sourceIndex=(g*5+j)%statements.length; const source=statements[sourceIndex]; groupStatements.push([...source]); } groups.push({title:'T/F Group '+String(g+1).padStart(2,'0'),category:c.label,statements:groupStatements}); } b.tf=groups;
  const sbas=[]; for(let i=0;i<30;i++){const f=facts[i%facts.length];const variant=Math.floor(i/facts.length);let stem,correct,wrong;
  if(variant===0){stem='Which statement is most accurate in this topic area?';correct=f[0];wrong=[f[1],...sharedDistractors].slice(0,4);}
  else if(variant===1){stem='A trainee makes the following claim: “'+f[1]+'” Which correction is most appropriate?';correct=f[0];wrong=[f[1],...sharedDistractors].slice(0,4);}
