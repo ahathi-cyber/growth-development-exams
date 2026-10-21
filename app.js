@@ -12,7 +12,7 @@ const $=id=>document.getElementById(id);
 const show=id=>$(id).classList.remove('hidden');
 const hide=id=>$(id).classList.add('hidden');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const topicLabel=()=>currentTopic==='jaundice'?'Neonatal Jaundice':currentTopic==='schizophrenia'?'Schizophrenia':currentTopic==='child-psychiatry'?'Child Psychiatry':currentTopic==='bipolar-affective'?'Bipolar Affective Disorder':'Growth & Development';
+const topicLabel=()=>window.PSYCHIATRY_MODULE_BANKS?.[currentTopic]?.label||(currentTopic==='jaundice'?'Neonatal Jaundice':currentTopic==='schizophrenia'?'Schizophrenia':currentTopic==='child-psychiatry'?'Child Psychiatry':currentTopic==='bipolar-affective'?'Bipolar Affective Disorder':'Growth & Development');
 const formatLabel=()=>mode==='tf'?'TRUE / FALSE':mode==='sba'?'SINGLE BEST ANSWER':'ESSAY QUESTIONS';
 function data(){return currentBank[mode==='essay'?'essays':mode];}
 function tfItem(q,si,qi=index){
@@ -35,13 +35,18 @@ async function loadBank(){
   if(!window.SCHIZOPHRENIA_BANK||window.SCHIZOPHRENIA_BANK.tf.length!==30||window.SCHIZOPHRENIA_BANK.sba.length!==30||window.SCHIZOPHRENIA_BANK.essays.length!==3)throw new Error('Schizophrenia question bank did not load correctly.');
   if(!window.CHILD_PSYCHIATRY_BANK||window.CHILD_PSYCHIATRY_BANK.tf.length!==30||window.CHILD_PSYCHIATRY_BANK.sba.length!==32||window.CHILD_PSYCHIATRY_BANK.essays.length!==3)throw new Error('Child Psychiatry question bank did not load correctly.');
   if(!window.BIPOLAR_AFFECTIVE_BANK||window.BIPOLAR_AFFECTIVE_BANK.tf.length!==30||window.BIPOLAR_AFFECTIVE_BANK.sba.length!==30||window.BIPOLAR_AFFECTIVE_BANK.essays.length!==3)throw new Error('Bipolar Affective Disorder question bank count check failed.');
+  const moduleBanks=window.PSYCHIATRY_MODULE_BANKS;
+  if(!moduleBanks)throw new Error('Psychiatry study modules did not load.');
+  for(const [id,bank] of Object.entries(moduleBanks)){
+   if(!bank.label||!Array.isArray(bank.tf)||bank.tf.length<1||bank.tf.some(q=>!Array.isArray(q.statements)||q.statements.length!==5||q.statements.some(st=>!Array.isArray(st)||st.length<2))||!Array.isArray(bank.sba)||bank.sba.length<3||bank.sba.some(q=>!q.stem||!q.options||!q.answer||!q.options[q.answer])||!Array.isArray(bank.essays)||bank.essays.length!==1||bank.essays[0].max!==20||bank.essays[0].rubric.reduce((n,c)=>n+c.points,0)!==20)throw new Error('Psychiatry module validation failed: '+id);
+  }
  }catch(e){
   $('home').innerHTML='<h1>Question bank could not be loaded</h1><p class="intro">Please check that both question-bank files are available in the repository.</p><pre>'+esc(e.message)+'</pre>';
   throw e;
  }
 }
 function selectTopic(topic){
- currentTopic=topic;currentBank=topic==='growth'?growthBank:topic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:topic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:topic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK;
+ currentTopic=topic;currentBank=window.PSYCHIATRY_MODULE_BANKS?.[topic]||(topic==='growth'?growthBank:topic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:topic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:topic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK);
  $('selected-topic-title').innerHTML=topic==='jaundice'?'Neonatal Jaundice <em>practice.</em>':topic==='schizophrenia'?'Schizophrenia <em>practice.</em>':topic==='child-psychiatry'?'Child Psychiatry <em>practice.</em>':topic==='bipolar-affective'?'Bipolar Affective Disorder <em>practice.</em>':'Growth &amp; Development <em>practice.</em>';
  $('selected-topic-desc').textContent=topic==='jaundice'?'Choose True/False, Single Best Answer or structured essay practice. The essay paper includes a formative marking rubric.':topic==='schizophrenia'?'Practise core concepts, diagnosis, clinical features, risk assessment, treatment and recovery. Essays use a formative point-based rubric.':topic==='child-psychiatry'?'Practise child development, autism, ADHD, emotional and behavioural disorders, safeguarding and management.':topic==='bipolar-affective'?'Psychiatry Test 01: bipolar spectrum, mania and hypomania, differential diagnosis, risk assessment, acute and long-term management. Includes T/F, SBA and essays with marking schemes.':'Choose True/False or Single Best Answer practice for Growth & Development.';
  if(topic==='jaundice'||topic==='schizophrenia'||topic==='child-psychiatry'||topic==='bipolar-affective')show('essay-mode-card');else hide('essay-mode-card');
@@ -52,7 +57,7 @@ function selectTopic(topic){
  hide('home');hide('exam');hide('results');show('mode-select');window.scrollTo({top:0,behavior:'smooth'});
 }
 function start(which){
- const bank=currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:currentTopic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK;
+ const bank=window.PSYCHIATRY_MODULE_BANKS?.[currentTopic]||(currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:currentTopic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK);
  const paperKey=which==='essay'?'essays':which;
  if(!bank||!Array.isArray(bank[paperKey])||bank[paperKey].length===0){
   alert('This paper is not available yet. Please return to topic selection and try again.');
@@ -142,11 +147,11 @@ function calculate(){
    const score=Math.max(0,raw);total+=score;
    return {title:q.title||'Group '+(qi+1),category:q.category||q.title||'Review',score,max:5,items,question:q};
   });
-  return {score:total,max:150,per};
+  return {score:total,max:per.length*5,per};
  }
  if(mode==='sba'){
   let score=0;const per=data().map((q,qi)=>{const a=answers.sba[qi]||'',key=sbaKey(q,qi),correct=a===key;if(correct)score+=3;return {title:q.title||'Question '+(qi+1),category:q.category||q.title||'Review',score:correct?3:0,max:3,answer:a,key,correct,question:q};});
-  return {score,max:90,per};
+  return {score,max:per.length*3,per};
  }
  let score=0;const per=data().map((q,qi)=>{
   const answer=String(answers.essay[qi]||''),normalized=normalize(answer);
