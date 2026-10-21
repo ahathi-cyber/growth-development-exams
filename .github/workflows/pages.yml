@@ -125,7 +125,7 @@ jobs:
           const banks = global.window.PSYCHIATRY_MODULE_BANKS;
           if (!banks || Object.keys(banks).length !== 16) throw new Error('Expected 16 ordered psychiatry modules.');
           for (const [id, bank] of Object.entries(banks)) {
-            if (!bank.label || !Array.isArray(bank.tf) || bank.tf.length !== 6) throw new Error(id + ': expected six T/F groups (30 statements).');
+            if (!bank.label || !Array.isArray(bank.tf) || bank.tf.length !== 30) throw new Error(id + ': expected 30 numbered T/F groups (five statements each).');
             for (const [i, group] of bank.tf.entries()) {
               if (!Array.isArray(group.statements) || group.statements.length !== 5) throw new Error(id + ': T/F group must contain five statements.');
               for (const statement of group.statements) if (!Array.isArray(statement) || typeof statement[0] !== 'string' || typeof statement[1] !== 'boolean') throw new Error(id + ': invalid T/F statement.');
