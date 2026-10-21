@@ -115,6 +115,31 @@ jobs:
           if (!app.includes("if(typeof saveQuizAttempt==='function')saveQuizAttempt(")) throw new Error('Quiz submission must save attempt history.');
           console.log('PASS: JS syntax, 30 Child Psychiatry T/F groups, 32 keyed SBA questions, registration continuation and history hook.');
           NODE
+      - name: Validate ordered psychiatry modules
+        run: |
+          node --check psychiatry-modules.js
+          node --check app.js
+          node - <<'NODE'
+          global.window = {};
+          require('./psychiatry-modules.js');
+          const banks = global.window.PSYCHIATRY_MODULE_BANKS;
+          if (!banks || Object.keys(banks).length !== 16) throw new Error('Expected 16 ordered psychiatry modules.');
+          for (const [id, bank] of Object.entries(banks)) {
+            if (!bank.label || !Array.isArray(bank.tf) || bank.tf.length !== 1) throw new Error(id + ': expected one T/F group.');
+            for (const [i, group] of bank.tf.entries()) {
+              if (!Array.isArray(group.statements) || group.statements.length !== 5) throw new Error(id + ': T/F group must contain five statements.');
+              for (const statement of group.statements) if (!Array.isArray(statement) || typeof statement[0] !== 'string' || typeof statement[1] !== 'boolean') throw new Error(id + ': invalid T/F statement.');
+            }
+            if (!Array.isArray(bank.sba) || bank.sba.length !== 3) throw new Error(id + ': expected three SBA questions.');
+            for (const q of bank.sba) if (!q.stem || !q.options || Object.keys(q.options).length !== 5 || !q.options[q.answer]) throw new Error(id + ': invalid SBA options or key.');
+            if (!Array.isArray(bank.essays) || bank.essays.length !== 1) throw new Error(id + ': expected one essay.');
+            const essay = bank.essays[0];
+            if (essay.max !== 20 || !Array.isArray(essay.rubric) || essay.rubric.reduce((n, c) => n + c.points, 0) !== 20) throw new Error(id + ': essay rubric must total 20 marks.');
+          }
+          const html = require('fs').readFileSync('index.html', 'utf8');
+          for (const id of Object.keys(banks)) if (!html.includes('data-topic="' + id + '"')) throw new Error('Missing dashboard card for ' + id);
+          console.log('PASS: 16 psychiatry modules; each has 5 T/F statements, 3 keyed SBAs and a 20-mark essay.');
+          NODE
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
