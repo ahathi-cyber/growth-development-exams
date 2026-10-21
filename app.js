@@ -38,7 +38,7 @@ async function loadBank(){
   const moduleBanks=window.PSYCHIATRY_MODULE_BANKS;
   if(!moduleBanks)throw new Error('Psychiatry study modules did not load.');
   for(const [id,bank] of Object.entries(moduleBanks)){
-   if(!bank.label||!Array.isArray(bank.tf)||bank.tf.length<1||bank.tf.some(q=>!Array.isArray(q.statements)||q.statements.length!==5||q.statements.some(st=>!Array.isArray(st)||st.length<2))||!Array.isArray(bank.sba)||bank.sba.length<3||bank.sba.some(q=>!q.stem||!q.options||!q.answer||!q.options[q.answer])||!Array.isArray(bank.essays)||bank.essays.length!==1||bank.essays[0].max!==20||bank.essays[0].rubric.reduce((n,c)=>n+c.points,0)!==20)throw new Error('Psychiatry module validation failed: '+id);
+   if(!bank.label||!Array.isArray(bank.tf)||bank.tf.length<1||bank.tf.some(q=>!Array.isArray(q.statements)||q.statements.length!==5||q.statements.some(st=>!Array.isArray(st)||st.length<2))||!Array.isArray(bank.sba)||bank.sba.length<3||bank.sba.some(q=>!q.stem||!q.options||!q.answer||!q.options[q.answer])||!Array.isArray(bank.essays)||bank.essays.length!==4||bank.essays.some(e=>e.max!==20||e.rubric.reduce((n,c)=>n+c.points,0)!==20))throw new Error('Psychiatry module validation failed: '+id);
   }
  }catch(e){
   $('home').innerHTML='<h1>Question bank could not be loaded</h1><p class="intro">Please check that both question-bank files are available in the repository.</p><pre>'+esc(e.message)+'</pre>';
@@ -52,9 +52,9 @@ function selectTopic(topic){
   $('selected-topic-title').textContent=module.label+' practice.';
   $('selected-topic-desc').textContent='Focused Final MBBS psychiatry module with True/False, Single Best Answer and one structured essay. Revision mode reveals answer explanations and the essay marking scheme.';
   show('essay-mode-card');
-  $('essay-mode-card').querySelector('.mode-desc').textContent='1 essay · 20 marks · model answer and point-by-point rubric.';
-  document.querySelector('[data-mode="tf"] .mode-desc').textContent=currentBank.tf.length+' statement groups · 5 statements per group.';
-  document.querySelector('[data-mode="sba"] .mode-desc').textContent=currentBank.sba.length+' single-best-answer questions.';
+  $('essay-mode-card').querySelector('.mode-desc').textContent='4 essays · 20 marks each · model answers and point-by-point rubrics.';
+  document.querySelector('[data-mode="tf"] .mode-desc').textContent=(currentBank.tf.length*5)+' True/False statements across '+currentBank.tf.length+' groups.';
+  document.querySelector('[data-mode="sba"] .mode-desc').textContent=currentBank.sba.length+' single-best-answer questions with keyed explanations.';
  }else{
   $('selected-topic-title').innerHTML=topic==='jaundice'?'Neonatal Jaundice <em>practice.</em>':topic==='schizophrenia'?'Schizophrenia <em>practice.</em>':topic==='child-psychiatry'?'Child Psychiatry <em>practice.</em>':topic==='bipolar-affective'?'Bipolar Affective Disorder <em>practice.</em>':'Growth &amp; Development <em>practice.</em>';
   $('selected-topic-desc').textContent=topic==='jaundice'?'Choose True/False, Single Best Answer or structured essay practice. The essay paper includes a formative marking rubric.':topic==='schizophrenia'?'Practise core concepts, diagnosis, clinical features, risk assessment, treatment and recovery. Essays use a formative point-based rubric.':topic==='child-psychiatry'?'Practise child development, autism, ADHD, emotional and behavioural disorders, safeguarding and management.':topic==='bipolar-affective'?'Psychiatry Test 01: bipolar spectrum, mania and hypomania, differential diagnosis, risk assessment, acute and long-term management. Includes T/F, SBA and essays with marking schemes.':'Choose True/False or Single Best Answer practice for Growth & Development.';
