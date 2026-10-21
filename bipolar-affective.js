@@ -1511,7 +1511,8 @@ window.BIPOLAR_AFFECTIVE_BANK = {
           ],
           "feedback": "Include immediate physical needs, respectful communication and continuity/relapse planning."
         }
-      ]
+      ],
+      "modelAnswer": "Assessment: establish the duration and change from baseline; ask about elevated/irritable mood, increased energy, reduced need for sleep, pressured speech, racing thoughts, grandiosity and risky behaviour. Explore previous depressive/elevated episodes, psychosis, treatment, family history and obtain collateral history where appropriate. Assess suicide/self-harm, impulsivity, spending, driving, exploitation, aggression, capacity and ability to care for self. Review alcohol/recreational drugs, prescribed medicines (including corticosteroids and antidepressants), physical and neurological causes; examine the patient and order targeted investigations. Prioritise safety, hydration, nutrition, sleep and a calm environment; arrange urgent specialist assessment and consider admission if risk or severity warrants it. Treat according to current local guidance, monitor response/adverse effects, involve supports with consent and develop a follow-up and relapse plan."
     },
     {
       "category": "Differential diagnosis and longitudinal course",
@@ -1675,7 +1676,8 @@ window.BIPOLAR_AFFECTIVE_BANK = {
           ],
           "feedback": "Avoid premature treatment assumptions; discuss bipolarity, treatment risks, monitoring and follow-up."
         }
-      ]
+      ],
+      "modelAnswer": "Take a longitudinal history of any distinct periods of elevated or irritable mood with increased energy, reduced need for sleep, pressured speech, racing thoughts, grandiosity, disinhibition and consequences. Clarify duration, observable change, functional impairment, hospitalisation and psychotic symptoms; psychosis during an elevated episode indicates mania rather than hypomania. Bipolar I requires a manic episode; Bipolar II requires hypomanic and major depressive episodes with no history of mania. Explore depressive episodes, recurrence, family history and collateral information. Consider medication-induced activation, substances, thyroid or neurological disease and other psychiatric differentials. Assess current severity and suicide/self-harm risk, including intent, plan, means and protective factors. Treatment should follow a careful formulation, shared decisions and current guidance, with attention to mood switching, monitoring and follow-up."
     },
     {
       "category": "Long-term management",
@@ -1854,7 +1856,8 @@ window.BIPOLAR_AFFECTIVE_BANK = {
           ],
           "feedback": "Support recovery and autonomy; review capacity when relevant and maintain continuity."
         }
-      ]
+      ],
+      "modelAnswer": "Long-term care aims to prevent recurrence, reduce harm and support personal and occupational functioning through shared, individualised decisions. Select maintenance medication according to episode pattern, prior response, comorbidity, adverse effects, reproductive considerations and local guidance. Lithium is an important option but requires serum-level and renal/thyroid monitoring and counselling about toxicity, hydration and interactions. Other options may include selected antipsychotics, lamotrigine or other mood stabilisers; monitoring is medicine-specific. Discuss adherence and side effects without blame. Offer psychoeducation, psychological interventions and family-focused work where appropriate. Agree an individual relapse plan covering early warning signs, sleep/circadian routine, triggers, whom to contact and urgent escalation. Monitor physical health, metabolic risks, substance use and comorbid conditions. Discuss pregnancy planning, medicine-specific reproductive risks and postpartum relapse prevention with specialist input. Review function, supports, consent, preferences and treatment regularly."
     }
   ]
 };
