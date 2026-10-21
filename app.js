@@ -38,7 +38,7 @@ async function loadBank(){
   const moduleBanks=window.PSYCHIATRY_MODULE_BANKS;
   if(!moduleBanks)throw new Error('Psychiatry study modules did not load.');
   for(const [id,bank] of Object.entries(moduleBanks)){
-   if(!bank.label||!Array.isArray(bank.tf)||bank.tf.length<1||bank.tf.some(q=>!Array.isArray(q.statements)||q.statements.length!==5||q.statements.some(st=>!Array.isArray(st)||st.length<2))||!Array.isArray(bank.sba)||bank.sba.length<3||bank.sba.some(q=>!q.stem||!q.options||!q.answer||!q.options[q.answer])||!Array.isArray(bank.essays)||bank.essays.length!==4||bank.essays.some(e=>e.max!==20||e.rubric.reduce((n,c)=>n+c.points,0)!==20))throw new Error('Psychiatry module validation failed: '+id);
+   if(!bank.label||!Array.isArray(bank.tf)||bank.tf.length!==30||bank.tf.some(q=>!Array.isArray(q.statements)||q.statements.length!==5||q.statements.some(st=>!Array.isArray(st)||st.length<2))||!Array.isArray(bank.sba)||bank.sba.length<3||bank.sba.some(q=>!q.stem||!q.options||!q.answer||!q.options[q.answer])||!Array.isArray(bank.essays)||bank.essays.length!==4||bank.essays.some(e=>e.max!==20||e.rubric.reduce((n,c)=>n+c.points,0)!==20))throw new Error('Psychiatry module validation failed: '+id);
   }
  }catch(e){
   $('home').innerHTML='<h1>Question bank could not be loaded</h1><p class="intro">Please check that both question-bank files are available in the repository.</p><pre>'+esc(e.message)+'</pre>';
@@ -50,7 +50,7 @@ function selectTopic(topic){
  const module=window.PSYCHIATRY_MODULE_BANKS?.[topic];
  if(module){
   $('selected-topic-title').textContent=module.label+' practice.';
-  $('selected-topic-desc').textContent='Focused Final MBBS psychiatry module with True/False, Single Best Answer and one structured essay. Revision mode reveals answer explanations and the essay marking scheme.';
+  $('selected-topic-desc').textContent='Focused Final MBBS psychiatry module with 30 numbered True/False groups (five statements per group), 30 Single Best Answer questions and four structured essays. Revision mode reveals answer explanations and essay marking schemes.';
   show('essay-mode-card');
   $('essay-mode-card').querySelector('.mode-desc').textContent='4 essays · 20 marks each · model answers and point-by-point rubrics.';
   document.querySelector('[data-mode="tf"] .mode-desc').textContent=(currentBank.tf.length*5)+' True/False statements across '+currentBank.tf.length+' groups.';
