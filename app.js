@@ -7,12 +7,12 @@ const TF_KEY=[
 [1,0,1,1,1],[1,0,1,1,0],[1,1,0,1,1],[1,1,0,1,0],[1,0,1,1,0]
 ];
 const SBA_KEY=['B','A','C','A','B','D','A','C','D','B','D','E','A','E','A','C','B','A','C','B','D','E','A','B','C','D','E','B','C','D'];
-let growthBank=null, currentBank=null, currentTopic='growth', mode='tf', index=0, answers={tf:{},sba:{},essay:{}}, results=null, essaySelfReview={};
+let growthBank=null, currentBank=null, currentTopic='growth', mode='tf', revisionMode=false, index=0, answers={tf:{},sba:{},essay:{}}, results=null, essaySelfReview={};
 const $=id=>document.getElementById(id);
 const show=id=>$(id).classList.remove('hidden');
 const hide=id=>$(id).classList.add('hidden');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const topicLabel=()=>currentTopic==='jaundice'?'Neonatal Jaundice':currentTopic==='schizophrenia'?'Schizophrenia':currentTopic==='child-psychiatry'?'Child Psychiatry':'Growth & Development';
+const topicLabel=()=>currentTopic==='jaundice'?'Neonatal Jaundice':currentTopic==='schizophrenia'?'Schizophrenia':currentTopic==='child-psychiatry'?'Child Psychiatry':currentTopic==='delusional-disorder'?'Delusional Disorder and Differential Diagnosis':'Growth & Development';
 const formatLabel=()=>mode==='tf'?'TRUE / FALSE':mode==='sba'?'SINGLE BEST ANSWER':'ESSAY QUESTIONS';
 function data(){return currentBank[mode==='essay'?'essays':mode];}
 function tfItem(q,si,qi=index){
@@ -34,23 +34,25 @@ async function loadBank(){
   if(!window.NEONATAL_JAUNDICE_BANK||window.NEONATAL_JAUNDICE_BANK.tf.length!==30||window.NEONATAL_JAUNDICE_BANK.sba.length!==30||window.NEONATAL_JAUNDICE_BANK.essays.length!==3)throw new Error('Neonatal Jaundice question bank did not load correctly.');
   if(!window.SCHIZOPHRENIA_BANK||window.SCHIZOPHRENIA_BANK.tf.length!==30||window.SCHIZOPHRENIA_BANK.sba.length!==30||window.SCHIZOPHRENIA_BANK.essays.length!==3)throw new Error('Schizophrenia question bank did not load correctly.');
   if(!window.CHILD_PSYCHIATRY_BANK||window.CHILD_PSYCHIATRY_BANK.tf.length!==30||window.CHILD_PSYCHIATRY_BANK.sba.length!==32||window.CHILD_PSYCHIATRY_BANK.essays.length!==3)throw new Error('Child Psychiatry question bank did not load correctly.');
+  if(!window.DELUSIONAL_DISORDER_BANK||window.DELUSIONAL_DISORDER_BANK.tf.length!==30||window.DELUSIONAL_DISORDER_BANK.sba.length!==30||window.DELUSIONAL_DISORDER_BANK.essays.length!==3)throw new Error('Psychiatry Test 01 question bank count check failed.');
  }catch(e){
   $('home').innerHTML='<h1>Question bank could not be loaded</h1><p class="intro">Please check that both question-bank files are available in the repository.</p><pre>'+esc(e.message)+'</pre>';
   throw e;
  }
 }
 function selectTopic(topic){
- currentTopic=topic;currentBank=topic==='growth'?growthBank:topic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:topic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:window.SCHIZOPHRENIA_BANK;
- $('selected-topic-title').innerHTML=topic==='jaundice'?'Neonatal Jaundice <em>practice.</em>':topic==='schizophrenia'?'Schizophrenia <em>practice.</em>':topic==='child-psychiatry'?'Child Psychiatry <em>practice.</em>':'Growth &amp; Development <em>practice.</em>';
- $('selected-topic-desc').textContent=topic==='jaundice'?'Choose True/False, Single Best Answer or structured essay practice. The essay paper includes a formative marking rubric.':topic==='schizophrenia'?'Practise core concepts, diagnosis, clinical features, risk assessment, treatment and recovery. Essays use a formative point-based rubric.':topic==='child-psychiatry'?'Practise child development, autism, ADHD, emotional and behavioural disorders, safeguarding and management.':'Choose True/False or Single Best Answer practice for Growth & Development.';
- if(topic==='jaundice'||topic==='schizophrenia'||topic==='child-psychiatry')show('essay-mode-card');else hide('essay-mode-card');
- $('essay-mode-card').querySelector('.mode-desc').textContent=topic==='schizophrenia'?'3 schizophrenia essays · 20 marks each · point-by-point rubric and missing-point suggestions.':topic==='child-psychiatry'?'3 child psychiatry essays · 20 marks each · model answers and point-by-point marking rubrics.':'3 neonatal jaundice essays · 20 marks each · point-by-point rubric and missing-point suggestions.';
+ currentTopic=topic;currentBank=topic==='growth'?growthBank:topic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:topic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:topic==='delusional-disorder'?window.DELUSIONAL_DISORDER_BANK:window.SCHIZOPHRENIA_BANK;
+ $('selected-topic-title').innerHTML=topic==='jaundice'?'Neonatal Jaundice <em>practice.</em>':topic==='schizophrenia'?'Schizophrenia <em>practice.</em>':topic==='child-psychiatry'?'Child Psychiatry <em>practice.</em>':topic==='delusional-disorder'?'Delusional Disorder &amp; Differential Diagnosis <em>practice.</em>':'Growth &amp; Development <em>practice.</em>';
+ $('selected-topic-desc').textContent=topic==='jaundice'?'Choose True/False, Single Best Answer or structured essay practice. The essay paper includes a formative marking rubric.':topic==='schizophrenia'?'Practise core concepts, diagnosis, clinical features, risk assessment, treatment and recovery. Essays use a formative point-based rubric.':topic==='child-psychiatry'?'Practise child development, autism, ADHD, emotional and behavioural disorders, safeguarding and management.':topic==='delusional-disorder'?'Psychiatry Test 01: delusional disorder, phenomenology, differential diagnosis, assessment, risk and management. Includes T/F, SBA and essays with marking schemes.':'Choose True/False or Single Best Answer practice for Growth & Development.';
+ if(topic==='jaundice'||topic==='schizophrenia'||topic==='child-psychiatry'||topic==='delusional-disorder')show('essay-mode-card');else hide('essay-mode-card');
+ $('essay-mode-card').querySelector('.mode-desc').textContent=topic==='schizophrenia'?'3 schizophrenia essays · 20 marks each · point-by-point rubric and missing-point suggestions.':topic==='child-psychiatry'?'3 child psychiatry essays · 20 marks each · model answers and point-by-point marking rubrics.':topic==='delusional-disorder'?'3 Psychiatry Test 01 essays · 20 marks each · model answers and point-by-point marking rubrics.':'3 neonatal jaundice essays · 20 marks each · point-by-point rubric and missing-point suggestions.';
  document.querySelector('[data-mode="tf"] .mode-desc').textContent=topic==='child-psychiatry'?'30 groups · 5 statements each. Mark each statement True or False.':'30 groups · 5 statements each. Mark every statement True or False in a compact table.';
  document.querySelector('[data-mode="sba"] .mode-desc').textContent=topic==='child-psychiatry'?'32 single-best-answer questions covering core child psychiatry topics.':'30 questions with one best answer. No topic labels or category hints before submission.';
+ const revision=$('revision-mode');if(revision){revision.checked=revisionMode;revision.onchange=()=>{revisionMode=revision.checked;render();};}
  hide('home');hide('exam');hide('results');show('mode-select');window.scrollTo({top:0,behavior:'smooth'});
 }
 function start(which){
- const bank=currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:window.SCHIZOPHRENIA_BANK;
+ const bank=currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:currentTopic==='delusional-disorder'?window.DELUSIONAL_DISORDER_BANK:window.SCHIZOPHRENIA_BANK;
  const paperKey=which==='essay'?'essays':which;
  if(!bank||!Array.isArray(bank[paperKey])||bank[paperKey].length===0){
   alert('This paper is not available yet. Please return to topic selection and try again.');
@@ -103,8 +105,8 @@ function render(){
  const body=$('question-body');body.innerHTML='';
  if(mode==='tf'){
   const rows=q.statements.map((raw,si)=>{
-   const st=tfItem(q,si,index).text,saved=getAnswer(index,si);
-   return '<tr><td class="tf-num">'+(si+1)+'</td><td class="tf-statement">'+esc(st)+'</td><td class="tf-choice"><label><input type="radio" name="tf-'+index+'-'+si+'" value="1" '+(saved==='1'?'checked':'')+' aria-label="Statement '+(si+1)+', True"><span>True</span></label></td><td class="tf-choice"><label><input type="radio" name="tf-'+index+'-'+si+'" value="0" '+(saved==='0'?'checked':'')+' aria-label="Statement '+(si+1)+', False"><span>False</span></label></td></tr>';
+   const st=tfItem(q,si,index).text,saved=getAnswer(index,si),scheme=revisionMode?'<small class="revision-key">Answer: <b>'+(tfItem(q,si,index).answer?'True':'False')+'</b> · '+esc(tfItem(q,si,index).explanation||'Review the relevant concept.')+'</small>':'';
+   return '<tr><td class="tf-num">'+(si+1)+'</td><td class="tf-statement">'+esc(st)+scheme+'</td><td class="tf-choice"><label><input type="radio" name="tf-'+index+'-'+si+'" value="1" '+(saved==='1'?'checked':'')+' aria-label="Statement '+(si+1)+', True"><span>True</span></label></td><td class="tf-choice"><label><input type="radio" name="tf-'+index+'-'+si+'" value="0" '+(saved==='0'?'checked':'')+' aria-label="Statement '+(si+1)+', False"><span>False</span></label></td></tr>';
   }).join('');
   body.innerHTML='<div class="tf-table-wrap"><table class="tf-table"><thead><tr><th>#</th><th>Statement</th><th>True</th><th>False</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
   body.querySelectorAll('input[type="radio"]').forEach(input=>input.addEventListener('change',()=>{const m=input.name.match(/^tf-(\d+)-(\d+)$/);answers.tf[Number(m[1])]??={};answers.tf[Number(m[1])][Number(m[2])]=input.value;renderProgress();}));
@@ -112,15 +114,15 @@ function render(){
   const card=document.createElement('article');card.className='sba-card';const saved=getAnswer(index);
   Object.entries(q.options).forEach(([letter,option])=>{
    const label=document.createElement('label');label.className='sba-option'+(saved===letter?' selected':'');
-   label.innerHTML='<input type="radio" name="sba-'+index+'" value="'+letter+'" '+(saved===letter?'checked':'')+'><span class="letter">'+letter+'</span><span>'+esc(option)+'</span>';
+   label.innerHTML='<input type="radio" name="sba-'+index+'" value="'+letter+'" '+(saved===letter?'checked':'')+'><span class="letter">'+letter+'</span><span>'+esc(option)+(revisionMode&&letter===q.answer?' <b class="revision-correct">Correct answer</b>':'')+'</span>';
    label.querySelector('input').addEventListener('change',e=>{answers.sba[index]=e.target.value;card.querySelectorAll('.sba-option').forEach(el=>el.classList.remove('selected'));label.classList.add('selected');renderProgress();});
    card.appendChild(label);
-  });body.appendChild(card);
+  });body.appendChild(card);if(revisionMode){const key=document.createElement('p');key.className='revision-key';key.innerHTML='<b>Answer: '+esc(q.answer)+'</b> · '+esc(q.explanation||'');body.appendChild(key);}
  }else{
   const wrap=document.createElement('div');wrap.className='essay-editor';
   const answer=String(getAnswer(index)||'');
   wrap.innerHTML='<div class="essay-editor-head"><span>Suggested structure: identify the problem, explain your reasoning, then give a clear plan.</span><span id="word-count">'+(answer.trim()?answer.trim().split(/\s+/).length:0)+' words</span></div><textarea id="essay-input" rows="14" placeholder="Write your answer here. Include the important points, reasoning and management plan where relevant.">'+esc(answer)+'</textarea><p class="essay-helper">Your answer stays in this browser. The marking rubric will be shown after you submit.</p>';
-  body.appendChild(wrap);
+  body.appendChild(wrap);if(revisionMode){const scheme=document.createElement('details');scheme.open=true;scheme.className='revision-key';scheme.innerHTML='<summary>Marking scheme and model answer</summary><p>'+esc(q.modelAnswer||'')+'</p><ul>'+q.rubric.map(c=>'<li><b>'+esc(c.label)+'</b> — '+c.points+' marks. '+esc(c.feedback)+'</li>').join('')+'</ul>';body.appendChild(scheme);}
   $('essay-input').addEventListener('input',e=>{answers.essay[index]=e.target.value;const n=e.target.value.trim()?e.target.value.trim().split(/\s+/).length:0;$('word-count').textContent=n+' words';renderProgress();});
  }
  $('prev').disabled=index===0;$('next').textContent=index===data().length-1?'Last question':'Next →';
