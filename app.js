@@ -106,12 +106,26 @@ function renderNav(){
 }
 function renderProgress(){
  const done=answeredCount(),total=totalResponseCount();
- $('progress-fill').style.width=(done/total*100)+'%';
- $('saved').textContent=mode==='essay'?done+' / '+total+' essays started':done+' / '+total+' responses selected';
+ $('progress-fill').style.width=(total?done/total*100:0)+'%';
+ $('saved').textContent=total?(mode==='essay'?done+' / '+total+' essays started':done+' / '+total+' responses selected'):'No verified past-paper questions available in this module yet.';
  renderNav();
 }
 function render(){
- const q=data()[index];
+ const items=data();
+ $('exam-label').textContent=topicLabel().toUpperCase()+' · '+formatLabel();
+ const body=$('question-body');
+ if(!items.length){
+  $('counter').textContent='0 questions';
+  $('q-number').textContent='SOURCE CHECK';
+  $('q-title').textContent='No verified past-paper questions available';
+  $('q-stem').textContent='Only questions confirmed in the uploaded past-paper PDFs will be shown here.';
+  body.innerHTML='<div class="revision-key"><p><b>No questions have been added to this module yet.</b></p><p>Questions will be added only when they can be matched to the uploaded past-paper PDFs. This module will remain empty rather than use invented, paraphrased, or repeated questions to reach a target count.</p></div>';
+  $('prev').disabled=true;$('next').disabled=true;$('submit').disabled=true;
+  $('progress-fill').style.width='0%';$('saved').textContent='0 verified questions';$('question-nav').innerHTML='';
+  return;
+ }
+ $('prev').disabled=false;$('next').disabled=false;$('submit').disabled=false;
+ const q=items[index];
  $('exam-label').textContent=topicLabel().toUpperCase()+' · '+formatLabel();
  $('counter').textContent=String(index+1).padStart(2,'0')+' / '+data().length+(mode==='essay'?' essays':'');
  $('q-number').textContent=mode==='tf'?'GROUP '+String(index+1).padStart(2,'0'):mode==='essay'?'ESSAY '+String(index+1).padStart(2,'0'):'QUESTION '+String(index+1).padStart(2,'0');
