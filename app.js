@@ -52,9 +52,8 @@ function selectTopic(topic){
  const module=window.PSYCHIATRY_MODULE_BANKS?.[topic];
  if(module){
   $('selected-topic-title').textContent=module.label+' practice.';
-  $('selected-topic-desc').textContent='Focused Final MBBS psychiatry module with 30 numbered True/False groups (five statements per group), 30 Single Best Answer questions and four structured essays. Revision mode reveals answer explanations and essay marking schemes.';
-  show('essay-mode-card');
-  $('essay-mode-card').querySelector('.mode-desc').textContent='4 essays · 20 marks each · model answers and point-by-point rubrics.';
+  $('selected-topic-desc').textContent='Verified past-paper questions only. This module currently contains '+module.tf.length+' True/False groups, '+module.sba.length+' Single Best Answer questions and '+module.essays.length+' essays. No questions are added from general knowledge or to fill a target count.';
+  if(module.essays.length){show('essay-mode-card');$('essay-mode-card').querySelector('.mode-desc').textContent=module.essays.length+' source-verified essays.';}else{hide('essay-mode-card');}
   document.querySelector('[data-mode="tf"] .mode-desc').textContent=(currentBank.tf.length*5)+' True/False statements across '+currentBank.tf.length+' groups.';
   document.querySelector('[data-mode="sba"] .mode-desc').textContent=currentBank.sba.length+' single-best-answer questions with keyed explanations.';
  }else{
