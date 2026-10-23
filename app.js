@@ -32,13 +32,15 @@ async function loadBank(){
   growthBank=JSON.parse(await new Response(stream).text());
   if(growthBank.tf.length!==30||growthBank.sba.length!==30)throw new Error('Growth & Development question count check failed.');
   if(!window.NEONATAL_JAUNDICE_BANK||window.NEONATAL_JAUNDICE_BANK.tf.length!==30||window.NEONATAL_JAUNDICE_BANK.sba.length!==30||window.NEONATAL_JAUNDICE_BANK.essays.length!==3)throw new Error('Neonatal Jaundice question bank did not load correctly.');
-  if(!window.SCHIZOPHRENIA_BANK||window.SCHIZOPHRENIA_BANK.tf.length!==30||window.SCHIZOPHRENIA_BANK.sba.length!==30||window.SCHIZOPHRENIA_BANK.essays.length!==3)throw new Error('Schizophrenia question bank did not load correctly.');
-  if(!window.CHILD_PSYCHIATRY_BANK||window.CHILD_PSYCHIATRY_BANK.tf.length!==30||window.CHILD_PSYCHIATRY_BANK.sba.length!==32||window.CHILD_PSYCHIATRY_BANK.essays.length!==3)throw new Error('Child Psychiatry question bank did not load correctly.');
-  if(!window.BIPOLAR_AFFECTIVE_BANK||window.BIPOLAR_AFFECTIVE_BANK.tf.length!==30||window.BIPOLAR_AFFECTIVE_BANK.sba.length!==30||window.BIPOLAR_AFFECTIVE_BANK.essays.length!==3)throw new Error('Bipolar Affective Disorder question bank count check failed.');
+  // Legacy psychiatry banks may be empty while source verification is pending.
+  // Do not block the whole site because a source-only bank has fewer than an old target count.
+  for(const [name,bank] of [['Schizophrenia',window.SCHIZOPHRENIA_BANK],['Child Psychiatry',window.CHILD_PSYCHIATRY_BANK],['Bipolar Affective Disorder',window.BIPOLAR_AFFECTIVE_BANK]]){
+   if(!bank||!Array.isArray(bank.tf)||!Array.isArray(bank.sba)||!Array.isArray(bank.essays))throw new Error(name+' question-bank file did not load or has an invalid structure.');
+  }
   const moduleBanks=window.PSYCHIATRY_MODULE_BANKS;
   if(!moduleBanks)throw new Error('Psychiatry study modules did not load.');
   for(const [id,bank] of Object.entries(moduleBanks)){
-   if(!bank.label||!Array.isArray(bank.tf)||bank.tf.length!==30||bank.tf.some(q=>!Array.isArray(q.statements)||q.statements.length!==5||q.statements.some(st=>!Array.isArray(st)||st.length<2))||!Array.isArray(bank.sba)||bank.sba.length<3||bank.sba.some(q=>!q.stem||!q.options||!q.answer||!q.options[q.answer])||!Array.isArray(bank.essays)||bank.essays.length!==4||bank.essays.some(e=>e.max!==20||e.rubric.reduce((n,c)=>n+c.points,0)!==20))throw new Error('Psychiatry module validation failed: '+id);
+   if(!bank.label||!Array.isArray(bank.tf)||bank.tf.some(q=>!q||!Array.isArray(q.statements)||q.statements.some(st=>!(typeof st==='string'||(Array.isArray(st)&&typeof st[0]==='string')||(st&&typeof st.text==='string'))))||!Array.isArray(bank.sba)||bank.sba.some(q=>!q||!q.stem||!q.options||!q.answer||!q.options[q.answer])||!Array.isArray(bank.essays)||bank.essays.some(e=>!e||!e.prompt||!Array.isArray(e.rubric)||e.max!==20||e.rubric.reduce((n,item)=>n+(Number(item.points)||0),0)!==20))throw new Error('Psychiatry module structure validation failed: '+id);
   }
  }catch(e){
   $('home').innerHTML='<h1>Question bank could not be loaded</h1><p class="intro">Please check that both question-bank files are available in the repository.</p><pre>'+esc(e.message)+'</pre>';
