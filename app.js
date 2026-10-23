@@ -131,7 +131,7 @@ function render(){
  $('q-number').textContent=mode==='tf'?'GROUP '+String(index+1).padStart(2,'0'):mode==='essay'?'ESSAY '+String(index+1).padStart(2,'0'):'QUESTION '+String(index+1).padStart(2,'0');
  $('q-title').textContent=mode==='tf'?'Statement group '+String(index+1).padStart(2,'0'):mode==='essay'?'Essay question '+String(index+1).padStart(2,'0'):'Question '+String(index+1).padStart(2,'0');
  $('q-stem').textContent=mode==='tf'?'Mark each statement True or False.':mode==='sba'?q.stem:q.prompt;
- const body=$('question-body');body.innerHTML='';
+ body.innerHTML='';
  if(mode==='tf'){
   const rows=q.statements.map((raw,si)=>{
    const st=tfItem(q,si,index).text,saved=getAnswer(index,si),scheme=revisionMode?'<small class="revision-key">Answer: <b>'+(tfItem(q,si,index).answer?'True':'False')+'</b> · '+esc(tfItem(q,si,index).explanation||'Review the relevant concept.')+'</small>':'';
