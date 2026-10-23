@@ -48,8 +48,8 @@ async function loadBank(){
  }
 }
 function selectTopic(topic){
- currentTopic=topic;currentBank=window.PSYCHIATRY_MODULE_BANKS?.[topic]||(topic==='growth'?growthBank:topic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:topic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:topic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK);
- const module=window.PSYCHIATRY_MODULE_BANKS?.[topic];
+ currentTopic=topic;currentBank=window.PSYCHIATRY_MODULE_BANKS?.[topic]||(topic==='schizophrenia'?window.PSYCHIATRY_MODULE_BANKS?.psychosis:null)||(topic==='growth'?growthBank:topic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:topic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:topic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK);
+ const module=window.PSYCHIATRY_MODULE_BANKS?.[topic]||(topic==='schizophrenia'?window.PSYCHIATRY_MODULE_BANKS?.psychosis:null);
  if(module){
   $('selected-topic-title').textContent=module.label+' practice.';
   $('selected-topic-desc').textContent='Verified past-paper questions only. This module currently contains '+module.tf.length+' True/False groups, '+module.sba.length+' Single Best Answer questions and '+module.essays.length+' essays. No questions are added from general knowledge or to fill a target count.';
@@ -67,7 +67,7 @@ function selectTopic(topic){
  hide('home');hide('exam');hide('results');show('mode-select');window.scrollTo({top:0,behavior:'smooth'});
 }
 function start(which){
- const bank=window.PSYCHIATRY_MODULE_BANKS?.[currentTopic]||(currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:currentTopic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK);
+ const bank=window.PSYCHIATRY_MODULE_BANKS?.[currentTopic]||(currentTopic==='schizophrenia'?window.PSYCHIATRY_MODULE_BANKS?.psychosis:null)||(currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:currentTopic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK);
  const paperKey=which==='essay'?'essays':which;
  if(!bank||!Array.isArray(bank[paperKey])||bank[paperKey].length===0){
   alert('This paper is not available yet. Please return to topic selection and try again.');
