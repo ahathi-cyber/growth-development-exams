@@ -90,20 +90,25 @@ jobs:
           global.window = {};
           require('./psychiatry-modules.js');
           const banks = global.window.PSYCHIATRY_MODULE_BANKS;
-          if (!banks || Object.keys(banks).length !== 16) throw new Error('Expected 16 ordered psychiatry modules.');
+          if (!banks || Object.keys(banks).length !== 17) throw new Error('Expected 17 psychiatry bank entries including the combined core bank.');
           for (const [id, bank] of Object.entries(banks)) {
             if (!bank.label || !Array.isArray(bank.tf) || !Array.isArray(bank.sba) || !Array.isArray(bank.essays)) {
               throw new Error(id + ': invalid source-only bank structure.');
             }
             for (const group of bank.tf) {
-              if (!Array.isArray(group.statements)) throw new Error(id + ': invalid T/F group.');
+              if (!Array.isArray(group.statements) || group.statements.length !== 5) throw new Error(id + ': each T/F group must contain exactly five source statements.');
+              if (id === 'psychiatry-core' && (!group.stem || !group.stem.trim())) throw new Error('Core T/F group is missing its original common stem.');
               for (const item of group.statements) if (!Array.isArray(item) || typeof item[0] !== 'string' || typeof item[1] !== 'boolean') throw new Error(id + ': invalid T/F statement.');
             }
             for (const q of bank.sba) if (!q.stem || !q.options || !q.answer || !q.options[q.answer]) throw new Error(id + ': invalid SBA item.');
           }
           const html = require('fs').readFileSync('index.html', 'utf8');
-          for (const id of Object.keys(banks)) if (!html.includes('data-topic="' + id + '"')) throw new Error('Missing dashboard card for ' + id);
-          console.log('PASS: 16 psychiatry modules; question counts may reflect only verified uploaded past-paper items.');
+          if (!html.includes('data-topic="psychiatry-core"')) throw new Error('Missing combined Psychiatry Core dashboard card.');
+          for (const id of ['foundations', 'mood', 'psychosis']) if (html.includes('data-topic="' + id + '"')) throw new Error('Legacy core topic card should be consolidated: ' + id);
+          const core = banks['psychiatry-core'];
+          if (core.tf.length !== banks.foundations.tf.length + banks.mood.tf.length + banks.psychosis.tf.length) throw new Error('Combined core T/F groups do not match the source modules.');
+          if (core.sba.length !== banks.foundations.sba.length + banks.mood.sba.length + banks.psychosis.sba.length) throw new Error('Combined core SBA count does not match the source modules.');
+          console.log('PASS: 17 psychiatry bank entries; combined core, original T/F stems, five statements per group, and source-only counts validated.');
           NODE
       - name: Configure Pages
         uses: actions/configure-pages@v5
