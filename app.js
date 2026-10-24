@@ -67,12 +67,17 @@ function selectTopic(topic){
  hide('home');hide('exam');hide('results');show('mode-select');window.scrollTo({top:0,behavior:'smooth'});
 }
 function start(which){
- const bank=window.PSYCHIATRY_MODULE_BANKS?.[currentTopic]||(currentTopic==='schizophrenia'?window.PSYCHIATRY_MODULE_BANKS?.psychosis:null)||(currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:currentTopic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK);
+ // Use the bank selected by selectTopic() first, so the paper uses the exact
+ // module the student is viewing rather than re-resolving a possibly aliased key.
+ const bank=currentBank||(window.PSYCHIATRY_MODULE_BANKS?.[currentTopic]||(currentTopic==='schizophrenia'?window.PSYCHIATRY_MODULE_BANKS?.psychosis:null)||(currentTopic==='growth'?growthBank:currentTopic==='jaundice'?window.NEONATAL_JAUNDICE_BANK:currentTopic==='child-psychiatry'?window.CHILD_PSYCHIATRY_BANK:currentTopic==='bipolar-affective'?window.BIPOLAR_AFFECTIVE_BANK:window.SCHIZOPHRENIA_BANK));
  const paperKey=which==='essay'?'essays':which;
  if(!bank||!Array.isArray(bank[paperKey])||bank[paperKey].length===0){
-  alert('This paper is not available yet. Please return to topic selection and try again.');
+  const available=bank&&Array.isArray(bank[paperKey])?bank[paperKey].length:0;
+  console.error('Unable to start paper', {topic:currentTopic, mode:which, paperKey, bankLabel:bank?.label, available, moduleBankLoaded:Boolean(window.PSYCHIATRY_MODULE_BANKS)});
+  alert('No verified '+(which==='tf'?'True/False groups':which==='sba'?'SBA questions':'essay questions')+' are available for this topic yet. Return to topic selection and choose a paper with available questions.');
   return;
  }
+ currentBank=bank;
  currentBank=bank;mode=which;index=0;
  answers[mode]={};essaySelfReview={};results=null;
  hide('home');hide('mode-select');hide('results');show('exam');
