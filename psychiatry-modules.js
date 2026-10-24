@@ -105,6 +105,56 @@ window.PSYCHIATRY_MODULE_BANKS = {
       {stem:"A young man with schizophrenia complains of hearing three criminals talking about him. He does not know where they are. They do not mention his name, but refer to him as the man with a mental illness. He hears them planning to kill him. What is the most likely psychopathology?",options:{A:"Persecutory delusions",B:"Delusion of reference",C:"Second-person auditory hallucinations",D:"Third-person auditory hallucinations",E:"Delusion of control"},answer:"D",explanation:"Source: Psychiatry - Categorized MCQ (2024 Jan added), p. 23; 2019 March, SBA 45."},
       {stem:"A 20-year-old patient diagnosed with schizophrenia developed a severe dystonic reaction after the haloperidol dose was increased the previous day. What is the most appropriate next step in management?",options:{A:"Change to olanzapine",B:"IM benztropine",C:"Give IV diazepam",D:"IM promethazine",E:"IV atropine"},answer:"B",explanation:"Source: Psychiatry - Categorized MCQ (2024 Jan added), p. 22; keyed in Psych MCQs by M, p. 73."}
     ],
+    tf:[
+      {statements:[
+        ["Female gender is a poor prognostic factor for schizophrenia.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
+        ["Family history of schizophrenia is a poor prognostic factor.",true,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
+        ["Substance abuse is a poor prognostic factor for schizophrenia.",true,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
+        ["Affective symptoms are a poor prognostic factor for schizophrenia.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
+        ["Acute onset is a poor prognostic factor for schizophrenia.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."]
+      ]},
+      {statements:[
+        ["Blunted mood favours schizophrenia over depression.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
+        ["Delusion of nihilism favours schizophrenia over depression.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
+        ["Thought broadcasting favours schizophrenia over depression.",true,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
+        ["Passivity phenomena favour schizophrenia over depression.",true,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
+        ["Delusion of guilt favours schizophrenia over depression.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."]
+      ]},
+      {statements:[
+        ["Neuroleptic malignant syndrome is associated with elevated creatinine phosphokinase.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
+        ["Clozapine is the treatment of choice for neuroleptic malignant syndrome.",false,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
+        ["Muscular rigidity is a feature of neuroleptic malignant syndrome.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
+        ["Benzodiazepines can be used in the treatment of neuroleptic malignant syndrome.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
+        ["Atypical antipsychotics can cause neuroleptic malignant syndrome.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."]
+      ]},
+      {statements:[
+        ["Clozapine is used to treat treatment-resistant schizophrenia.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
+        ["Hypersalivation is a common side effect of clozapine.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
+        ["Clozapine worsens tardive dyskinesia.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
+        ["Acute dystonia is a typical adverse reaction to clozapine.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
+        ["Clozapine can reduce the seizure threshold.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."]
+      ]},
+      {statements:[
+        ["Depot antipsychotics are used when patients are resistant to oral drugs.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
+        ["Depot antipsychotics have a lower risk of extrapyramidal side effects than oral equivalents.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
+        ["Depot antipsychotics can improve treatment compliance.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
+        ["A test dose is used before starting some first-generation depot antipsychotics.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
+        ["Depot antipsychotics are used more often for acute treatment than for prophylaxis.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."]
+      ]},
+      {statements:[
+        ["Agranulocytosis is a common side effect of clozapine.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Myocarditis is a common side effect of clozapine.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Hypersalivation is a common side effect of clozapine.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Pulmonary embolism can occur with clozapine.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Sedation is a common side effect of clozapine.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."]
+      ]}
+    ],
+    sba:[
+      {stem:"A 23-year-old man recently diagnosed with schizophrenia is reviewed a month after discharge. He reports drooling, tremors and rigidity of both hands while taking risperidone 4 mg daily. He has not taken any other antipsychotic before. Which antipsychotic is the best choice if the side effects significantly impair his functioning?",options:{A:"Clozapine",B:"Haloperidol",C:"Chlorpromazine",D:"Olanzapine",E:"Fluphenazine"},answer:"D",explanation:"Source: Psych MCQs by M, p. 75; 2019 November, SBA 2."},
+      {stem:"A 55-year-old patient with schizophrenia has had poor response after treatment with olanzapine 40 mg for four months and risperidone 8 mg for four months. What is the next treatment option?",options:{A:"Two-antipsychotic combination",B:"Stop olanzapine and add haloperidol",C:"Stop olanzapine and add clozapine",D:"Stop olanzapine and add fluphenazine",E:"ECT"},answer:"C",explanation:"Source: Psych MCQs by M, p. 76; 2019 November, SBA 3."},
+      {stem:"A patient with schizophrenia is highly agitated, threatening staff and expressing persecutory delusions. He has not taken medication for six months and refuses it. What is the most appropriate immediate management?",options:{A:"Untie the patient",B:"Verbal de-escalation",C:"IM haloperidol 10 mg stat",D:"IV diazepam",E:"IM fluphenazine decanoate 25 mg stat"},answer:"C",explanation:"Source: Psych MCQs by M, p. 71; examination session not specified in the source record."},
+      {stem:"Which psychopathology most strongly supports a diagnosis of schizophrenia in a 19-year-old with irritability, poor sleep and social withdrawal, if present for more than one month?",options:{A:"Delusional belief that others are plotting about him",B:"Hearing voices commanding him to kill himself",C:"Delusional belief that others are laughing at him",D:"Delusional belief that others could read his thoughts",E:"Delusional belief that others are talking about him"},answer:"D",explanation:"Source: Psych MCQs by M, p. 73; 2020 June, SBA 3."}
+    ],
     essays:[]
   },
   "anxiety-ocd": {label:"Anxiety, OCD & Related Disorders",tf:[],sba:[],essays:[]},
