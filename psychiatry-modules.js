@@ -137,7 +137,7 @@ window.PSYCHIATRY_MODULE_BANKS = {
         ["Agranulocytosis is a common side effect of clozapine.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
         ["Myocarditis is a common side effect of clozapine.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
         ["Hypersalivation is a common side effect of clozapine.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
-        ["Pulmonary embolism can occur with clozapine.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Pulmonary embolism is a common side effect of clozapine.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
         ["Sedation is a common side effect of clozapine.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."]
       ]}
     ],
