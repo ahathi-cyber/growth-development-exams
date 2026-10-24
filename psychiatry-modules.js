@@ -42,7 +42,37 @@ window.PSYCHIATRY_MODULE_BANKS = {
     ],
     essays:[]
   },
-  "mood": {label:"Mood Disorders & Suicide Risk",tf:[],sba:[],essays:[]},
+  "mood": {
+    label:"Mood Disorders & Suicide Risk",
+    tf:[
+      {statements:[
+        ["Features of lithium toxicity include fine tremors.",false,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."],
+        ["Features of lithium toxicity include confusion.",true,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."],
+        ["Features of lithium toxicity include ataxia.",true,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."],
+        ["Features of lithium toxicity include polyuria.",false,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."],
+        ["Features of lithium toxicity include nystagmus.",false,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."]
+      ]},
+      {statements:[
+        ["In a mixed affective episode, both manic and depressive symptoms are seen during the same episode.",true,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
+        ["Rapid cycling is more common in men than women.",false,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
+        ["Cyclothymia is a milder form of bipolar affective disorder.",true,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
+        ["For most patients, the first episode is manic.",false,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
+        ["Psychotic symptoms are not seen in hypomania.",true,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."]
+      ]},
+      {statements:[
+        ["The mean duration of an untreated manic episode is 6 months.",true,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
+        ["The majority of patients whose first episode is manic will not have further mood disturbances.",false,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
+        ["The duration between episodes gets longer as the patient gets older.",false,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
+        ["Type 2 bipolar affective disorder has a better prognosis than type 1 bipolar affective disorder.",true,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
+        ["If left untreated, bipolar affective disorder can predispose to dementia.",true,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."]
+      ]}
+    ],
+    sba:[
+      {stem:"A 26-year-old man diagnosed with bipolar affective disorder presents with persistent low mood, lack of energy and ideas of self-harm for two weeks. His past clinic record indicates that his last relapse was two years ago and that he was prescribed lithium 500 mg daily. What is the most appropriate management?",options:{A:"Increase the dose of lithium to 750 mg daily",B:"Start supportive psychotherapy",C:"Reassure the patient that symptoms will disappear",D:"Add sodium valproate",E:"Request a serum lithium level"},answer:"E",explanation:"Source: Psychiatry - Categorized MCQ (2025 September added), p. 33; 2024 November, SBA 8. Answer key: Psych MCQs by M, pp. 101–102."},
+      {stem:"A patient with bipolar affective disorder presents with increased sleepiness, weight gain, constipation and easy fatigability for three months. The disorder has been well controlled with lithium carbonate 500 mg at night for the last two years. What is the next step in management?",options:{A:"Increase lithium carbonate dose",B:"Add sertraline",C:"Add sodium valproate",D:"Add olanzapine",E:"Do thyroid function tests"},answer:"E",explanation:"Source: Psych MCQs by M, p. 102; 2024 December, SBA 3."}
+    ],
+    essays:[]
+  },
   "psychosis": {
     label:"Schizophrenia & Psychotic Disorders",
     tf:[
