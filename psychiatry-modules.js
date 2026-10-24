@@ -4,7 +4,45 @@
  * These categories intentionally remain empty until a question is verified against a source page.
  */
 window.PSYCHIATRY_MODULE_BANKS = {
-  "foundations": {label:"Foundations: History, MSE & Psychopathology",tf:[],sba:[],essays:[]},
+  "foundations": {
+    label:"Foundations: History, MSE & Psychopathology",
+    tf:[
+      {statements:[
+        ["Cataplexy – Catatonia.",false,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."],
+        ["Formication – Cocaine abuse.",true,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."],
+        ["Perseveration – Dementia.",true,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."],
+        ["Talking past the point – Anxiety.",false,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."],
+        ["Anosognosia – Stroke.",true,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."]
+      ]},
+      {statements:[
+        ["Auditory hallucinations can be dismissed at will.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
+        ["Auditory hallucinations are diagnostic of schizophrenia.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
+        ["Auditory hallucinations arise from inner subjective space.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
+        ["Auditory hallucinations occur in delirium.",true,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
+        ["Thought echo is a type of auditory hallucination.",true,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."]
+      ]},
+      {statements:[
+        ["“I hear my name being called out, as I am falling asleep” – Third-person auditory hallucinations.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."],
+        ["“When I’m in a meeting, I feel everyone looking at me” – Delusion of reference.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."],
+        ["“I can hear a voice asking me to run” – Running commentary.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."],
+        ["“I have the power of Kali Amma” – Bizarre delusion.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."],
+        ["“My neighbours are putting ideas in my head” – Delusional perception.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."]
+      ]},
+      {statements:[
+        ["In flight of ideas, the patient's thoughts frequently change to another topic.",true,"Source: Psych MCQs by M, p. 9; 2024 January, T/F 2."],
+        ["Flight of ideas is seen in anxiety disorders.",false,"Source: Psych MCQs by M, p. 9; 2024 January, T/F 2."],
+        ["Rapid speed of speech is seen in flight of ideas.",true,"Source: Psych MCQs by M, p. 9; 2024 January, T/F 2."],
+        ["Derailment is seen in flight of ideas.",false,"Source: Psych MCQs by M, p. 9; 2024 January, T/F 2."],
+        ["Clang associations are present in flight of ideas.",true,"Source: Psych MCQs by M, p. 9; 2024 January, T/F 2."]
+      ]}
+    ],
+    sba:[
+      {stem:"A 32-year-old woman says that while walking by a park she saw a pigeon and heard a car horn, and believed these were a message that she was chosen to save the human race. She believes the pigeon symbolized purity and the horn was a signal to act. What psychopathology best describes this?",options:{A:"Delusion of reference",B:"Grandiose delusion",C:"Bizarre delusion",D:"Delusional perception",E:"Delusion of control"},answer:"D",explanation:"Source: Psych MCQs by M, p. 5; 2025 September, SBA 2."},
+      {stem:"A 65-year-old woman says, “I feel like there are insects inside my body. I know that it is impossible, but I keep worrying about it and cannot stop thinking about it.” What is the psychopathology?",options:{A:"Tactile hallucination",B:"Obsessional thought",C:"Pseudohallucinations",D:"Specific phobia",E:"Delusion of infestation"},answer:"B",explanation:"Source: Psych MCQs by M, p. 7; 2024 November, SBA 2."},
+      {stem:"A patient hears their own thoughts being repeated aloud immediately after or simultaneously with thinking them. Which psychopathology is described?",options:{A:"Running commentary",B:"Thought echo",C:"Command hallucination",D:"Hypnagogic hallucination",E:"Third-person auditory hallucination"},answer:"B",explanation:"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1(e) and explanation."}
+    ],
+    essays:[]
+  },
   "mood": {label:"Mood Disorders & Suicide Risk",tf:[],sba:[],essays:[]},
   "psychosis": {
     label:"Schizophrenia & Psychotic Disorders",
