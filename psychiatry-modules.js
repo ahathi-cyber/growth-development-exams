@@ -7,28 +7,28 @@ window.PSYCHIATRY_MODULE_BANKS = {
   "foundations": {
     label:"Foundations: History, MSE & Psychopathology",
     tf:[
-      {statements:[
+      {stem:"Which psychopathology and its condition is correctly matched?",statements:[
         ["Cataplexy – Catatonia.",false,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."],
         ["Formication – Cocaine abuse.",true,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."],
         ["Perseveration – Dementia.",true,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."],
         ["Talking past the point – Anxiety.",false,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."],
         ["Anosognosia – Stroke.",true,"Source: Psych MCQs by M, p. 4; 2025 September, T/F 1."]
       ]},
-      {statements:[
-        ["Auditory hallucinations can be dismissed at will.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
-        ["Auditory hallucinations are diagnostic of schizophrenia.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
-        ["Auditory hallucinations arise from inner subjective space.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
-        ["Auditory hallucinations occur in delirium.",true,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
+      {stem:"Regarding auditory hallucinations,",statements:[
+        ["They can be dismissed at will.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
+        ["Diagnostic of schizophrenia.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
+        ["Arises from inner subjective space.",false,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
+        ["Occurs in delirium.",true,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."],
         ["Thought echo is a type of auditory hallucination.",true,"Source: Psych MCQs by M, p. 6; 2024 November, T/F 1."]
       ]},
-      {statements:[
+      {stem:"Which of the following are matches correctly?",statements:[
         ["“I hear my name being called out, as I am falling asleep” – Third-person auditory hallucinations.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."],
         ["“When I’m in a meeting, I feel everyone looking at me” – Delusion of reference.",true,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."],
         ["“I can hear a voice asking me to run” – Running commentary.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."],
         ["“I have the power of Kali Amma” – Bizarre delusion.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."],
         ["“My neighbours are putting ideas in my head” – Delusional perception.",false,"Source: Psych MCQs by M, p. 8; 2024 January, T/F 1."]
       ]},
-      {statements:[
+      {stem:"Regarding flight of ideas,",statements:[
         ["In flight of ideas, the patient's thoughts frequently change to another topic.",true,"Source: Psych MCQs by M, p. 9; 2024 January, T/F 2."],
         ["Flight of ideas is seen in anxiety disorders.",false,"Source: Psych MCQs by M, p. 9; 2024 January, T/F 2."],
         ["Rapid speed of speech is seen in flight of ideas.",true,"Source: Psych MCQs by M, p. 9; 2024 January, T/F 2."],
@@ -45,25 +45,25 @@ window.PSYCHIATRY_MODULE_BANKS = {
   "mood": {
     label:"Mood Disorders & Suicide Risk",
     tf:[
-      {statements:[
+      {stem:"Features of lithium toxicity include,",statements:[
         ["Features of lithium toxicity include fine tremors.",false,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."],
         ["Features of lithium toxicity include confusion.",true,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."],
         ["Features of lithium toxicity include ataxia.",true,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."],
         ["Features of lithium toxicity include polyuria.",false,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."],
         ["Features of lithium toxicity include nystagmus.",false,"Source: Psych MCQs by M, p. 99; 2025 September, T/F 1."]
       ]},
-      {statements:[
-        ["In a mixed affective episode, both manic and depressive symptoms are seen during the same episode.",true,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
+      {stem:"Regarding bipolar affective disorder,",statements:[
+        ["In mixed affective episode, both manic and depressive symptoms are seen during the same episode.",true,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
         ["Rapid cycling is more common in men than women.",false,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
         ["Cyclothymia is a milder form of bipolar affective disorder.",true,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
-        ["For most patients, the first episode is manic.",false,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
+        ["For most of the patients, first episode is manic.",false,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."],
         ["Psychotic symptoms are not seen in hypomania.",true,"Source: Psych MCQs by M, p. 103; 2024 January, T/F 1."]
       ]},
-      {statements:[
+      {stem:"Regarding bipolar affective disorder,",statements:[
         ["The mean duration of an untreated manic episode is 6 months.",true,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
-        ["The majority of patients whose first episode is manic will not have further mood disturbances.",false,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
-        ["The duration between episodes gets longer as the patient gets older.",false,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
-        ["Type 2 bipolar affective disorder has a better prognosis than type 1 bipolar affective disorder.",true,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
+        ["The majority of patients with first episode as manic will not have further mood disturbances.",false,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
+        ["Duration in-between the episodes gets longer when the patient gets older.",false,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
+        ["Type 2 Bipolar affective disorder has a better prognosis than type 1 Bipolar affective disorder.",true,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."],
         ["If left untreated, bipolar affective disorder can predispose to dementia.",true,"Source: Psych MCQs by M, p. 104; 2024 January, T/F 2."]
       ]}
     ],
@@ -76,21 +76,21 @@ window.PSYCHIATRY_MODULE_BANKS = {
   "psychosis": {
     label:"Schizophrenia & Psychotic Disorders",
     tf:[
-      {statements:[
-        ["The incidence of mortality in schizophrenia is higher compared to the general population.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 2."],
-        ["Schizophrenia is associated with obsessive compulsive disorder.",true,"Source key: Psych MCQs by M, pp. 65–66; 2023 T/F 2."],
-        ["First-rank symptoms are needed for the diagnosis of schizophrenia.",false,"Source key: Psych MCQs by M, p. 66; 2023 T/F 2."],
-        ["The prodrome of schizophrenia is characterized by prominent psychotic symptoms.",false,"Source key: Psych MCQs by M, p. 66; 2023 T/F 2."],
-        ["The risk of suicide in schizophrenia is higher during the initial period of the illness.",true,"Source key: Psych MCQs by M, pp. 65–66; 2023 T/F 2."]
+      {stem:"Regarding schizophrenia,",statements:[
+        ["The incidence of mortality is higher compared to the general population.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 2."],
+        ["Associated with obsessive compulsive disorder.",true,"Source key: Psych MCQs by M, pp. 65–66; 2023 T/F 2."],
+        ["First rank symptoms are needed for the diagnosis.",false,"Source key: Psych MCQs by M, p. 66; 2023 T/F 2."],
+        ["Prodrome is characterized by prominent psychotic symptoms.",false,"Source key: Psych MCQs by M, p. 66; 2023 T/F 2."],
+        ["The risk of suicide is higher during the initial period of the illness.",true,"Source key: Psych MCQs by M, pp. 65–66; 2023 T/F 2."]
       ]},
-      {statements:[
-        ["Birth trauma is a risk factor for the development of schizophrenia.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."],
-        ["Advanced paternal age is a risk factor for the development of schizophrenia.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."],
-        ["Cannabis is a risk factor for the development of schizophrenia.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."],
-        ["Migration is a risk factor for the development of schizophrenia.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."],
-        ["Malnutrition during pregnancy is a risk factor for the development of schizophrenia.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."]
+      {stem:"Risk factors for the development of schizophrenia include,",statements:[
+        ["Birth trauma.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."],
+        ["Advanced paternal age.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."],
+        ["Cannabis.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."],
+        ["Migration.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."],
+        ["Malnutrition during pregnancy.",true,"Source key: Psych MCQs by M, p. 65; 2023 T/F 1."]
       ]},
-      {statements:[
+      {stem:"Which of the following features alone for a one month duration is sufficient for a diagnosis of schizophrenia?",statements:[
         ["Nimal hears the voice of an unseen woman telling him he has the ability to save the world from avian flu. This feature alone for one month is sufficient for a diagnosis of schizophrenia.",false,"Source key: Psych MCQs by M, p. 66; 2023 schizophrenia question 3 (FFFFF)."],
         ["Jude feels the presence of God in church. This feature alone for one month is sufficient for a diagnosis of schizophrenia.",false,"Source key: Psych MCQs by M, p. 66; 2023 schizophrenia question 3 (FFFFF)."],
         ["Lal often thinks his thoughts are known by others. This feature alone for one month is sufficient for a diagnosis of schizophrenia.",false,"Source key: Psych MCQs by M, p. 66; 2023 schizophrenia question 3 (FFFFF)."],
@@ -98,47 +98,47 @@ window.PSYCHIATRY_MODULE_BANKS = {
         ["Raja does not have the energy to go to his job. This feature alone for one month is sufficient for a diagnosis of schizophrenia.",false,"Source key: Psych MCQs by M, p. 66; 2023 schizophrenia question 3 (FFFFF)."]
       ]}
     ,
-      {statements:[
-        ["Female gender is a poor prognostic factor for schizophrenia.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
-        ["Family history of schizophrenia is a poor prognostic factor.",true,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
-        ["Substance abuse is a poor prognostic factor for schizophrenia.",true,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
-        ["Affective symptoms are a poor prognostic factor for schizophrenia.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
-        ["Acute onset is a poor prognostic factor for schizophrenia.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."]
+      {stem:"Poor prognostic factors of schizophrenia,",statements:[
+        ["Female gender.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
+        ["Family history of schizophrenia.",true,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
+        ["Substance abuse.",true,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
+        ["Affective symptoms.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."],
+        ["Acute onset.",false,"Source: Psych MCQs by M, p. 71; 2020 June, T/F 1."]
       ]},
-      {statements:[
-        ["Blunted mood favours schizophrenia over depression.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
-        ["Delusion of nihilism favours schizophrenia over depression.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
-        ["Thought broadcasting favours schizophrenia over depression.",true,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
-        ["Passivity phenomena favour schizophrenia over depression.",true,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
-        ["Delusion of guilt favours schizophrenia over depression.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."]
+      {stem:"Which of the following favour schizophrenia over depression?",statements:[
+        ["Blunt mood.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
+        ["Delusion of nihilism.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
+        ["Thought broadcasting.",true,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
+        ["Passivity.",true,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."],
+        ["Delusion of guilt.",false,"Source: Psych MCQs by M, p. 75; 2019 November, T/F 1."]
       ]},
-      {statements:[
-        ["Neuroleptic malignant syndrome is associated with elevated creatinine phosphokinase.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
-        ["Clozapine is the treatment of choice for neuroleptic malignant syndrome.",false,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
-        ["Muscular rigidity is a feature of neuroleptic malignant syndrome.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
-        ["Benzodiazepines can be used in the treatment of neuroleptic malignant syndrome.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
-        ["Atypical antipsychotics can cause neuroleptic malignant syndrome.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."]
+      {stem:"Neuroleptic malignant syndrome,",statements:[
+        ["Elevated creatinine phosphokinase level.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
+        ["Clozapine is the treatment of choice.",false,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
+        ["Muscular rigidity is a feature.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
+        ["Treat with benzodiazepine.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."],
+        ["Atypical antipsychotics is a cause.",true,"Source: Psych MCQs by M, p. 78; 2018 November, T/F 1."]
       ]},
-      {statements:[
-        ["Clozapine is used to treat treatment-resistant schizophrenia.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
-        ["Hypersalivation is a common side effect of clozapine.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
-        ["Clozapine worsens tardive dyskinesia.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
-        ["Acute dystonia is a typical adverse reaction to clozapine.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
-        ["Clozapine can reduce the seizure threshold.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."]
+      {stem:"Clozapine,",statements:[
+        ["Used to treat resistant schizophrenia.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
+        ["Hypersalivation is a common side effect.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
+        ["Worsens tardive dyskinesia.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
+        ["Acute dystonia is an adverse reaction.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."],
+        ["Reduce the seizure threshold.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 2."]
       ]},
-      {statements:[
-        ["Depot antipsychotics are used when patients are resistant to oral drugs.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
-        ["Depot antipsychotics have a lower risk of extrapyramidal side effects than oral equivalents.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
-        ["Depot antipsychotics can improve treatment compliance.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
-        ["A test dose is used before starting some first-generation depot antipsychotics.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
-        ["Depot antipsychotics are used more often for acute treatment than for prophylaxis.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."]
+      {stem:"Regarding depot antipsychotics,",statements:[
+        ["Is used when patients are resistant to oral drugs.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
+        ["Less risk of development of extra pyramidal side effects.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
+        ["Increases the compliance.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
+        ["A pretest is done before starting a new drug.",true,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."],
+        ["Most used to treat acute than prophylactic.",false,"Source: Psych MCQs by M, p. 79; 2018 November, T/F 3."]
       ]},
-      {statements:[
-        ["Agranulocytosis is a common side effect of clozapine.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
-        ["Myocarditis is a common side effect of clozapine.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
-        ["Hypersalivation is a common side effect of clozapine.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
-        ["Pulmonary embolism is a common side effect of clozapine.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
-        ["Sedation is a common side effect of clozapine.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."]
+      {stem:"Which of the following is/are common side effects of clozapine?",statements:[
+        ["Agranulocytosis.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Myocarditis.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Hypersalivation.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Pulmonary embolism.",false,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."],
+        ["Sedation.",true,"Source: Psych MCQs by M, p. 70; 2021 March, T/F 1."]
       ]}
     ],
     sba:[
@@ -168,4 +168,10 @@ window.PSYCHIATRY_MODULE_BANKS = {
   "emergencies": {label:"Psychiatric Emergencies & Clinical Risk",tf:[],sba:[],essays:[]},
   "forensic-ethics": {label:"Forensic Psychiatry, Ethics & Mental Health Law",tf:[],sba:[],essays:[]},
   "liaison-misc": {label:"Liaison Psychiatry & Miscellaneous Topics",tf:[],sba:[],essays:[]}
+};
+window.PSYCHIATRY_MODULE_BANKS["psychiatry-core"] = {
+  label: "Psychiatry Core: Psychopathology, Mood Disorders & Psychosis",
+  tf: [...window.PSYCHIATRY_MODULE_BANKS.foundations.tf, ...window.PSYCHIATRY_MODULE_BANKS.mood.tf, ...window.PSYCHIATRY_MODULE_BANKS.psychosis.tf],
+  sba: [...window.PSYCHIATRY_MODULE_BANKS.foundations.sba, ...window.PSYCHIATRY_MODULE_BANKS.mood.sba, ...window.PSYCHIATRY_MODULE_BANKS.psychosis.sba],
+  essays: [...window.PSYCHIATRY_MODULE_BANKS.foundations.essays, ...window.PSYCHIATRY_MODULE_BANKS.mood.essays, ...window.PSYCHIATRY_MODULE_BANKS.psychosis.essays]
 };
