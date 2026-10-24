@@ -148,7 +148,7 @@ function render(){
  $('counter').textContent=String(index+1).padStart(2,'0')+' / '+data().length+(mode==='essay'?' essays':'');
  $('q-number').textContent=(mode==='tf'?'GROUP ':mode==='essay'?'ESSAY ':'QUESTION ')+String(index+1).padStart(2,'0')+' · '+originalSourceLabel(q);
  $('q-title').textContent=mode==='tf'?'Statement group '+String(index+1).padStart(2,'0'):mode==='essay'?'Essay question '+String(index+1).padStart(2,'0'):'Question '+String(index+1).padStart(2,'0');
- $('q-stem').textContent=mode==='tf'?'Mark each statement True or False.':mode==='sba'?q.stem:q.prompt;
+ $('q-stem').textContent=mode==='tf'?(q.stem||'Mark each statement True or False.'):mode==='sba'?q.stem:q.prompt;
  body.innerHTML='';
  if(mode==='tf'){
   const rows=q.statements.map((raw,si)=>{
