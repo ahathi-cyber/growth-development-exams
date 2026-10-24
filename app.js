@@ -15,6 +15,19 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const topicLabel=()=>window.PSYCHIATRY_MODULE_BANKS?.[currentTopic]?.label||(currentTopic==='jaundice'?'Neonatal Jaundice':currentTopic==='schizophrenia'?'Schizophrenia':currentTopic==='child-psychiatry'?'Child Psychiatry':currentTopic==='bipolar-affective'?'Bipolar Affective Disorder':'Growth & Development');
 const formatLabel=()=>mode==='tf'?'TRUE / FALSE':mode==='sba'?'SINGLE BEST ANSWER':'ESSAY QUESTIONS';
 function data(){return currentBank[mode==='essay'?'essays':mode];}
+function originalSourceLabel(q){
+ let raw='';
+ if(mode==='tf'){
+  const first=q?.statements?.[0];
+  raw=Array.isArray(first)?String(first[2]||''):first&&typeof first==='object'?String(first.explanation||''):'';
+ }else raw=String(q?.explanation||q?.source||'');
+ const match=raw.match(/(?:Source(?: key)?:\s*)?.*?((?:\d{4})(?:\s+[A-Za-z]+)?)[,;]\s*((?:T\/F|SBA|schizophrenia question|essay)\s*\d+)(?:\s|\.|\(|$)/i);
+ if(match)return 'Original paper: '+match[1].trim()+' · '+match[2].trim();
+ const year=raw.match(/\b(\d{4})\b/);
+ const number=raw.match(/\b(T\/F|SBA|question|essay)\s*#?\s*(\d+)\b/i);
+ if(year&&number)return 'Original paper: '+year[1]+' · '+number[1]+' '+number[2];
+ return raw?'Source reference: '+raw.replace(/^Source(?: key)?:\s*/i,'').replace(/\.$/,''):'Original question number/year not specified in the uploaded source record';
+}
 function tfItem(q,si,qi=index){
  const raw=q.statements[si];
  if(typeof raw==='string')return {text:raw,answer:currentTopic==='growth'?Boolean(TF_KEY[qi][si]):false,explanation:''};
@@ -133,7 +146,7 @@ function render(){
  const q=items[index];
  $('exam-label').textContent=topicLabel().toUpperCase()+' · '+formatLabel();
  $('counter').textContent=String(index+1).padStart(2,'0')+' / '+data().length+(mode==='essay'?' essays':'');
- $('q-number').textContent=mode==='tf'?'GROUP '+String(index+1).padStart(2,'0'):mode==='essay'?'ESSAY '+String(index+1).padStart(2,'0'):'QUESTION '+String(index+1).padStart(2,'0');
+ $('q-number').textContent=(mode==='tf'?'GROUP ':mode==='essay'?'ESSAY ':'QUESTION ')+String(index+1).padStart(2,'0')+' · '+originalSourceLabel(q);
  $('q-title').textContent=mode==='tf'?'Statement group '+String(index+1).padStart(2,'0'):mode==='essay'?'Essay question '+String(index+1).padStart(2,'0'):'Question '+String(index+1).padStart(2,'0');
  $('q-stem').textContent=mode==='tf'?'Mark each statement True or False.':mode==='sba'?q.stem:q.prompt;
  body.innerHTML='';
